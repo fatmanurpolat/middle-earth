@@ -1,0 +1,14 @@
+# Keep the build context small and avoid copying host artifacts into images.
+**/node_modules
+**/dist
+**/.turbo
+.git
+.github
+*.log
+.env
+.env.*
+!.env.prod.example
+**/.DS_Store
+apps/landing/dist
+apps/dashboard/dist
+apps/backend/dist

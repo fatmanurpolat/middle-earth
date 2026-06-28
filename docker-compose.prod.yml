@@ -1,0 +1,88 @@
+# Production stack for a single VPS: Postgres + backend + both frontends + Caddy
+# (auto-HTTPS reverse proxy). Bring it up with:
+#
+#   cp .env.prod.example .env
+#   # edit .env (domains + secrets), then:
+#   docker compose -f docker-compose.prod.yml up -d --build
+#
+name: middleearth-klip
+
+services:
+  postgres:
+    image: postgres:16-alpine
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: ${POSTGRES_USER:-middleearth}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:?set POSTGRES_PASSWORD in .env}
+      POSTGRES_DB: ${POSTGRES_DB:-middleearth}
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+      # Schema auto-applies on first boot of an empty volume.
+      - ./db/migrations:/docker-entrypoint-initdb.d:ro
+    healthcheck:
+      test: ['CMD-SHELL', 'pg_isready -U ${POSTGRES_USER:-middleearth} -d ${POSTGRES_DB:-middleearth}']
+      interval: 5s
+      timeout: 5s
+      retries: 10
+    # Not published to the host — only reachable on the internal compose network.
+
+  backend:
+    build:
+      context: .
+      dockerfile: apps/backend/Dockerfile
+    restart: unless-stopped
+    depends_on:
+      postgres:
+        condition: service_healthy
+    environment:
+      NODE_ENV: production
+      HOST: 0.0.0.0
+      PORT: '3000'
+      DATABASE_URL: postgres://${POSTGRES_USER:-middleearth}:${POSTGRES_PASSWORD}@postgres:5432/${POSTGRES_DB:-middleearth}
+      JWT_SECRET: ${JWT_SECRET:?set JWT_SECRET in .env}
+      JWT_EXPIRES_IN: ${JWT_EXPIRES_IN:-7d}
+      # The browser origins allowed to call the API.
+      CORS_ORIGINS: https://${LANDING_DOMAIN},https://${DASHBOARD_DOMAIN}
+    # Proxied by Caddy; no host port needed.
+
+  landing:
+    build:
+      context: .
+      dockerfile: apps/landing/Dockerfile
+      args:
+        # Baked into the static bundle at build time.
+        VITE_DASHBOARD_URL: https://${DASHBOARD_DOMAIN}
+    restart: unless-stopped
+
+  dashboard:
+    build:
+      context: .
+      dockerfile: apps/dashboard/Dockerfile
+      args:
+        # Baked into the static bundle at build time.
+        VITE_API_URL: https://${API_DOMAIN}/api
+    restart: unless-stopped
+
+  caddy:
+    image: caddy:2-alpine
+    restart: unless-stopped
+    depends_on:
+      - landing
+      - dashboard
+      - backend
+    ports:
+      - '80:80'
+      - '443:443'
+    environment:
+      LANDING_DOMAIN: ${LANDING_DOMAIN}
+      DASHBOARD_DOMAIN: ${DASHBOARD_DOMAIN}
+      API_DOMAIN: ${API_DOMAIN}
+    volumes:
+      - ./Caddyfile:/etc/caddy/Caddyfile:ro
+      - caddy_data:/data
+      - caddy_config:/config
+
+volumes:
+  pgdata:
+  caddy_data:
+  caddy_config:

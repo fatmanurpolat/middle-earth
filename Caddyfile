@@ -1,0 +1,18 @@
+# Caddy reverse proxy with automatic HTTPS (Let's Encrypt).
+# Domains come from the .env file (LANDING_DOMAIN / DASHBOARD_DOMAIN / API_DOMAIN).
+# Requires ports 80 + 443 open and the domains' DNS A-records pointing to this server.
+
+{$LANDING_DOMAIN} {
+	encode zstd gzip
+	reverse_proxy landing:80
+}
+
+{$DASHBOARD_DOMAIN} {
+	encode zstd gzip
+	reverse_proxy dashboard:80
+}
+
+{$API_DOMAIN} {
+	encode zstd gzip
+	reverse_proxy backend:3000
+}

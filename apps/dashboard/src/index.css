@@ -1,0 +1,87 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --accent: #c9a227;
+    --accent-soft: #2a2e37;
+  }
+
+  html,
+  body,
+  #root {
+    height: 100%;
+  }
+
+  body {
+    @apply bg-ink text-parchment font-serif antialiased;
+    background-image:
+      radial-gradient(
+        circle at 20% -10%,
+        rgba(201, 162, 39, 0.08),
+        transparent 45%
+      ),
+      radial-gradient(
+        circle at 85% 0%,
+        rgba(184, 192, 204, 0.06),
+        transparent 40%
+      ),
+      linear-gradient(180deg, #0b0b0f 0%, #14141c 100%);
+    background-attachment: fixed;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    @apply font-display tracking-wide;
+  }
+
+  ::selection {
+    background: rgba(201, 162, 39, 0.35);
+    color: #ede3cc;
+  }
+}
+
+@layer components {
+  .panel {
+    @apply rounded-2xl border border-mithril/10 bg-ink-night/70 backdrop-blur-sm
+      shadow-[0_8px_40px_-12px_rgba(0,0,0,0.8)];
+  }
+
+  .panel-accent {
+    border-color: color-mix(in srgb, var(--accent) 35%, transparent);
+  }
+
+  .accent-text {
+    color: var(--accent);
+  }
+
+  .accent-bg {
+    background-color: var(--accent);
+  }
+
+  .accent-ring {
+    box-shadow: 0 0 0 1px color-mix(in srgb, var(--accent) 50%, transparent);
+  }
+
+  .focus-ring {
+    @apply outline-none focus-visible:ring-2 focus-visible:ring-gold/70
+      focus-visible:ring-offset-2 focus-visible:ring-offset-ink;
+  }
+}
+
+@layer utilities {
+  .text-shadow-glow {
+    text-shadow:
+      0 0 12px rgba(201, 162, 39, 0.45),
+      0 0 30px rgba(201, 162, 39, 0.2);
+  }
+
+  .text-shadow-mithril {
+    text-shadow:
+      0 0 10px rgba(184, 192, 204, 0.6),
+      0 0 24px rgba(184, 192, 204, 0.3);
+  }
+}

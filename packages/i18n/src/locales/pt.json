@@ -1,0 +1,242 @@
+{
+  "common": {
+    "appName": "MiddleEarth-Klip",
+    "tagline": "Uma crônica para os andarilhos da Terra-média",
+    "language": "Idioma",
+    "loading": "Carregando...",
+    "error": "Algo deu errado",
+    "retry": "Tentar novamente",
+    "signOut": "Sair",
+    "back": "Voltar",
+    "languages": {
+      "en": "Inglês",
+      "tr": "Turco",
+      "pt": "Português"
+    }
+  },
+  "landing": {
+    "nav": {
+      "lore": "Lendas",
+      "ages": "Eras",
+      "enter": "Entrar",
+      "gallery": "Galeria",
+      "timeline": "Crónica"
+    },
+    "hero": {
+      "eyebrow": "Do Livro Vermelho do Marco Ocidental",
+      "title": "Percorra os caminhos da Terra-média",
+      "subtitle": "Escolha o seu povo, registre as histórias que já leu e meça o quão profundo é o seu amor pela mitologia.",
+      "cta": "Comece a sua jornada"
+    },
+    "artifact": {
+      "title": "O Um Anel",
+      "caption": "Forjado nas chamas da Montanha da Perdição, portador de uma inscrição oculta",
+      "runeNote": "Um Anel para a todos governar, Um Anel para a todos encontrar"
+    },
+    "lore": {
+      "title": "Uma era de mito e memória",
+      "body": "Da música dos Ainur à derrota da Última Aliança, a Terra-média guarda uma era de canção, tristeza e coragem silenciosa. Aqui cada leitor torna-se um guardião dessas histórias, reunindo os feitos de magos, reis e do humilde povo do Condado."
+    },
+    "ages": {
+      "title": "As Eras do Mundo",
+      "intro": "Em Arda, o tempo é contado em grandes Eras, cada uma marcada pela ascensão e queda de poderes.",
+      "firstAge": {
+        "title": "A Primeira Era",
+        "years": "Os Dias Antigos",
+        "body": "Os Dias Antigos, iluminados pelas Duas Árvores de Valinor. Fëanor forjou as Silmarils e, por elas, os Noldor travaram as longas e fadadas guerras contra Morgoth em Beleriand — as histórias de Beren e Lúthien, de Túrin e da queda de Gondolin. A Idade terminou quando os Valar lançaram Morgoth no Vazio e o mar engoliu Beleriand."
+      },
+      "secondAge": {
+        "title": "A Segunda Era",
+        "years": "Segunda Idade · 1 – 3441",
+        "body": "Uma idade de forja e orgulho. Em Eregion, os ferreiros-elfos fizeram os Anéis de Poder, e em segredo Sauron forjou o Um nas chamas de Orodruin para a todos dominar. Númenor ergueu-se em glória e afundou em ruína, e a Última Aliança de Elfos e Homens derrubou Sauron — embora o Um Anel não tenha sido destruído."
+      },
+      "thirdAge": {
+        "title": "A Terceira Era",
+        "years": "Terceira Idade · 1 – 3021",
+        "body": "O declínio dos Elfos e a longa vigília contra uma Sombra que regressa. Encontrado por Sméagol, perdido na escuridão e por fim levado para fora do Condado por um hobbit, o Um Anel desencadeou a Guerra do Anel — que terminou quando ele foi desfeito nas Fendas da Perdição."
+      },
+      "fourthAge": {
+        "title": "A Quarta Era",
+        "years": "Quarta Idade · a partir do ano 1",
+        "body": "Começa o Domínio dos Homens. Aragorn reina como Rei Elessar sobre o Reino Reunificado, os Portadores do Anel partem sobre o Mar com os últimos dos Eldar, e o mundo sai da lenda para a história que conhecemos."
+      }
+    },
+    "cta": {
+      "title": "A estrada segue sempre em frente",
+      "body": "Diga a senha, escolha o seu personagem e deixe que a sua história seja contada entre as grandes.",
+      "button": "Entrar na Terra-média"
+    },
+    "gallery": {
+      "title": "Visões da Terra-média",
+      "subtitle": "Iluminuras da lenda profunda — refúgios, águias e o Anel que a todos une.",
+      "rivendell": {
+        "title": "Valfenda, a Última Casa Acolhedora",
+        "caption": "Imladris, refúgio de Elrond, onde se reuniu o Conselho e se formou a Sociedade do Anel."
+      },
+      "ring": {
+        "title": "O Um Anel desperta",
+        "caption": "Lançado ao fogo, a inscrição oculta surge a arder: um Anel para a todos dominar."
+      },
+      "autumn": {
+        "title": "Imladris no outono",
+        "caption": "O vale oculto sob as Montanhas Nevoentas, dourado à luz minguante dos Elfos."
+      },
+      "eagle": {
+        "title": "As Águias de Manwë",
+        "caption": "Gwaihir, o Senhor dos Ventos, leva Gandalf do pináculo de Orthanc, sobre o anel de Isengard."
+      },
+      "ringGrass": {
+        "title": "O Anel na relva",
+        "caption": "Perdido nos Campos de Lis e na relva alta das eras, as suas letras élficas ainda brilham."
+      }
+    },
+    "timeline": {
+      "title": "Uma Crónica das Idades",
+      "intro": "Alguns dos pontos de viragem que moldaram Arda, do despertar dos Primogénitos à partida do Anel.",
+      "awakening": {
+        "era": "Anos das Árvores",
+        "title": "Os Elfos Despertam",
+        "body": "Os Primogénitos despertam em Cuiviénen sob as estrelas, e começa a longa história dos Eldar."
+      },
+      "rings": {
+        "era": "S.I. ~1500–1600",
+        "title": "Os Anéis de Poder",
+        "body": "Os ferreiros-elfos de Eregion forjam os Anéis; Sauron faz em segredo o Um na Montanha da Perdição."
+      },
+      "lastAlliance": {
+        "era": "S.I. 3441",
+        "title": "A Última Aliança",
+        "body": "Elfos e Homens derrotam Sauron; Isildur toma o Um Anel mas recusa destruí-lo."
+      },
+      "gollum": {
+        "era": "T.I. 2463",
+        "title": "Sméagol e o Anel",
+        "body": "Déagol encontra o Anel no Anduin; Sméagol mata por ele e definha até virar Gollum."
+      },
+      "bilbo": {
+        "era": "T.I. 2941",
+        "title": "Encontrado por um Hobbit",
+        "body": "Bilbo Bolseiro encontra o Anel na caverna de Gollum durante a demanda de Erebor."
+      },
+      "warOfRing": {
+        "era": "T.I. 3018–3019",
+        "title": "A Guerra do Anel",
+        "body": "Frodo leva o Anel a Mordor; é desfeito nas Fendas da Perdição e a Terceira Idade termina."
+      }
+    },
+    "footer": {
+      "text": "Uma homenagem feita por fãs às obras de J.R.R. Tolkien. Sem vínculo com o Espólio de Tolkien."
+    }
+  },
+  "auth": {
+    "doorTitle": "As Portas de Durin",
+    "doorSubtitle": "Senhor de Moria. Fale, amigo, e entre.",
+    "inscription": "Ennyn Durin Aran Moria: pedo mellon a minno",
+    "mellonPhrase": "Diga 'Mellon' e Entre",
+    "chooseCharacter": "Escolha o seu personagem",
+    "displayNameLabel": "Nome de exibição",
+    "displayNamePlaceholder": "Digite um nome ou deixe que o seu povo o nomeie",
+    "displayNameHint": "Deixe em branco para ser conhecido pelo nome do seu personagem.",
+    "enterButton": "Diga 'Mellon' e Entre",
+    "selected": "Você caminha como {{name}}",
+    "errorGeneric": "As portas não se abrem. Tente novamente.",
+    "errorNoCharacter": "Escolha um personagem antes de entrar.",
+    "tabRegister": "Novo viajante",
+    "tabLogin": "Regressar",
+    "usernameLabel": "Nome de utilizador",
+    "usernamePlaceholder": "O teu nome no Livro Vermelho",
+    "passwordLabel": "Palavra-passe",
+    "passwordPlaceholder": "A tua palavra secreta",
+    "passwordHint": "Pelo menos 8 caracteres.",
+    "loginButton": "Atravessar o portão",
+    "errorInvalidCredentials": "Essas palavras soam falsas — utilizador ou palavra-passe errados.",
+    "errorUsernameTaken": "Esse nome já está tomado. Escolhe outro."
+  },
+  "characters": {
+    "gandalf": {
+      "title": "O Peregrino Cinzento",
+      "tagline": "Servo do Fogo Secreto"
+    },
+    "legolas": {
+      "title": "Príncipe do Reino da Floresta",
+      "tagline": "Folha Verde da Floresta das Trevas"
+    },
+    "saruman": {
+      "title": "O Mago Branco",
+      "tagline": "Chefe da Ordem dos Istari"
+    },
+    "aragorn": {
+      "title": "Herdeiro de Isildur",
+      "tagline": "Rei Elessar do Reino Reunificado"
+    },
+    "gimli": {
+      "title": "Filho de Glóin",
+      "tagline": "Senhor das Cavernas Reluzentes"
+    },
+    "sam": {
+      "title": "O Jardineiro",
+      "tagline": "O mais fiel do Condado"
+    },
+    "frodo": {
+      "title": "O Portador do Anel",
+      "tagline": "Senhor de Bolsão"
+    },
+    "boromir": {
+      "title": "Capitão de Gondor",
+      "tagline": "Filho do Regente de Minas Tirith"
+    },
+    "gollum": {
+      "title": "Sméagol",
+      "tagline": "Guardião dos enigmas na escuridão"
+    }
+  },
+  "dashboard": {
+    "welcome": "Bem-vindo, {{name}}",
+    "subtitle": "A sua crônica da Terra-média aguarda.",
+    "greeting": {
+      "gandalf": "Um mago nunca se atrasa, nem chega cedo. Ele chega exatamente quando pretende.",
+      "legolas": "As estrelas estão veladas, mas os seus olhos permanecem atentos. Bem-vindo, Folha Verde.",
+      "saruman": "Contra o poder de Mordor não pode haver vitória — ainda assim, aqui você é muito bem-vindo.",
+      "aragorn": "Há sempre esperança. Seja bem-vindo — as mãos do rei são as mãos de um curandeiro.",
+      "gimli": "E o meu machado! Que bom ver você — um anão nunca esquece um amigo.",
+      "sam": "Eu fiz uma promessa, Sr. Frodo. Bem-vindo ao lar — o segundo café da manhã é por minha conta.",
+      "frodo": "Estou feliz por você estar aqui comigo, no fim de todas as coisas. Bem-vindo de volta.",
+      "boromir": "Gondor lhe dá as boas-vindas. A trompa da Cidade Branca soa pelo seu retorno.",
+      "gollum": "Bem-vindo de volta, meu Precioso! Sentimos a sua falta, sim, sentimos, gollum, gollum."
+    },
+    "fanMeter": {
+      "title": "Medidor de Fã de O Senhor dos Anéis",
+      "percentLabel": "{{value}}% devotado",
+      "booksRead": "{{read}} de {{total}} livros lidos",
+      "profileComplete": "Perfil completo",
+      "profileIncomplete": "Complete o seu perfil para ganhar mais pontos",
+      "rankLabel": "Patente",
+      "ranks": {
+        "hobbit": "Hobbit do Condado",
+        "ranger": "Guardião do Norte",
+        "fellowship": "Membro da Sociedade do Anel",
+        "captain": "Capitão de Gondor",
+        "istari": "Iniciado dos Istari",
+        "lord": "Senhor dos Anéis"
+      }
+    },
+    "books": {
+      "title": "A Demanda da Leitura",
+      "subtitle": "Marque cada história à medida que a termina.",
+      "read": "Lido",
+      "unread": "Não lido",
+      "markRead": "Marcar como lido",
+      "markUnread": "Marcar como não lido",
+      "year": "Publicado em {{year}}"
+    },
+    "profile": {
+      "title": "O Seu Perfil",
+      "displayName": "Nome de exibição",
+      "character": "Personagem",
+      "save": "Salvar",
+      "saved": "Salvo",
+      "namePlaceholder": "Digite um nome ou deixe que o seu povo o nomeie"
+    },
+    "signOut": "Sair"
+  }
+}

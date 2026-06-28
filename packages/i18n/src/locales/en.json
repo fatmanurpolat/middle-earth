@@ -1,0 +1,242 @@
+{
+  "common": {
+    "appName": "MiddleEarth-Klip",
+    "tagline": "A chronicle for the wanderers of Middle-earth",
+    "language": "Language",
+    "loading": "Loading...",
+    "error": "Something went wrong",
+    "retry": "Try again",
+    "signOut": "Sign out",
+    "back": "Back",
+    "languages": {
+      "en": "English",
+      "tr": "Turkish",
+      "pt": "Portuguese"
+    }
+  },
+  "landing": {
+    "nav": {
+      "lore": "Lore",
+      "ages": "Ages",
+      "enter": "Enter",
+      "gallery": "Gallery",
+      "timeline": "Chronicle"
+    },
+    "hero": {
+      "eyebrow": "From the Red Book of Westmarch",
+      "title": "Walk the roads of Middle-earth",
+      "subtitle": "Choose your kindred, track the tales you have read, and measure how deep your love of the legendarium truly runs.",
+      "cta": "Begin your journey"
+    },
+    "artifact": {
+      "title": "The One Ring",
+      "caption": "Forged in the fires of Mount Doom, bearer of a hidden inscription",
+      "runeNote": "One Ring to rule them all, One Ring to find them"
+    },
+    "lore": {
+      "title": "An age of myth and memory",
+      "body": "From the music of the Ainur to the breaking of the Last Alliance, Middle-earth holds an age of song, sorrow, and quiet courage. Here every reader becomes a keeper of those tales, gathering the deeds of wizards, kings, and humble folk of the Shire."
+    },
+    "ages": {
+      "title": "The Ages of the World",
+      "intro": "Time in Arda is reckoned in great Ages, each marked by the rise and fall of powers.",
+      "firstAge": {
+        "title": "The First Age",
+        "years": "The Elder Days",
+        "body": "The Elder Days, lit by the Two Trees of Valinor. Feanor wrought the Silmarils, and for them the Noldor waged the long, doomed wars against Morgoth in Beleriand — the tales of Beren and Luthien, of Turin, and of the fall of Gondolin. The Age ended when the Valar cast Morgoth into the Void and the sea swallowed Beleriand."
+      },
+      "secondAge": {
+        "title": "The Second Age",
+        "years": "Second Age · 1 – 3441",
+        "body": "An age of forging and pride. In Eregion the Elven-smiths made the Rings of Power, and in secret Sauron forged the One in the fires of Orodruin to rule them all. Numenor rose to glory and drowned in ruin, and the Last Alliance of Elves and Men cast Sauron down — though the One Ring was not destroyed."
+      },
+      "thirdAge": {
+        "title": "The Third Age",
+        "years": "Third Age · 1 – 3021",
+        "body": "The waning of the Elves and the long watch against a returning Shadow. Found by Smeagol, lost in the dark, and carried at last out of the Shire by a hobbit, the One Ring set the War of the Ring in motion — ending when it was unmade in the Cracks of Doom."
+      },
+      "fourthAge": {
+        "title": "The Fourth Age",
+        "years": "Fourth Age · from year 1",
+        "body": "The Dominion of Men begins. Aragorn reigns as King Elessar over the Reunited Kingdom, the Ring-bearers pass over the Sea with the last of the Eldar, and the world steps out of legend into the history we know."
+      }
+    },
+    "cta": {
+      "title": "The road goes ever on",
+      "body": "Speak the password, choose your character, and let your tale be counted among the great ones.",
+      "button": "Enter Middle-earth"
+    },
+    "gallery": {
+      "title": "Visions of Middle-earth",
+      "subtitle": "Illuminations from the deep lore — havens, eagles, and the Ring that binds them.",
+      "rivendell": {
+        "title": "Rivendell, the Last Homely House",
+        "caption": "Imladris, refuge of Elrond, where the Council was held and the Fellowship was formed."
+      },
+      "ring": {
+        "title": "The One Ring awakens",
+        "caption": "Cast into fire, the hidden inscription burns into view: one Ring to rule them all."
+      },
+      "autumn": {
+        "title": "Imladris in autumn",
+        "caption": "The hidden valley beneath the Misty Mountains, golden in the failing light of the Elves."
+      },
+      "eagle": {
+        "title": "The Eagles of Manwe",
+        "caption": "Gwaihir the Windlord bears Gandalf from the pinnacle of Orthanc, above the ring of Isengard."
+      },
+      "ringGrass": {
+        "title": "The Ring in the green",
+        "caption": "Lost in the Gladden Fields and the long grass of ages, its Elvish letters still aglow."
+      }
+    },
+    "timeline": {
+      "title": "A Chronicle of the Ages",
+      "intro": "A few of the turning points that shaped Arda, from the awakening of the Firstborn to the passing of the Ring.",
+      "awakening": {
+        "era": "Years of the Trees",
+        "title": "The Elves Awaken",
+        "body": "The Firstborn wake at Cuivienen beneath the stars, and the long history of the Eldar begins."
+      },
+      "rings": {
+        "era": "S.A. ~1500–1600",
+        "title": "The Rings of Power",
+        "body": "The Elven-smiths of Eregion forge the Rings; Sauron secretly makes the One in Mount Doom."
+      },
+      "lastAlliance": {
+        "era": "S.A. 3441",
+        "title": "The Last Alliance",
+        "body": "Elves and Men defeat Sauron; Isildur takes the One Ring but will not destroy it."
+      },
+      "gollum": {
+        "era": "T.A. 2463",
+        "title": "Smeagol and the Ring",
+        "body": "Deagol finds the Ring in the Anduin; Smeagol murders for it and withers into Gollum."
+      },
+      "bilbo": {
+        "era": "T.A. 2941",
+        "title": "Found by a Hobbit",
+        "body": "Bilbo Baggins finds the Ring in Gollum's cave during the quest of Erebor."
+      },
+      "warOfRing": {
+        "era": "T.A. 3018–3019",
+        "title": "The War of the Ring",
+        "body": "Frodo bears the Ring to Mordor; it is unmade in the Cracks of Doom and the Third Age ends."
+      }
+    },
+    "footer": {
+      "text": "A fan-made tribute to the works of J.R.R. Tolkien. Not affiliated with the Tolkien Estate."
+    }
+  },
+  "auth": {
+    "doorTitle": "The Doors of Durin",
+    "doorSubtitle": "Lord of Moria. Speak, friend, and enter.",
+    "inscription": "Ennyn Durin Aran Moria: pedo mellon a minno",
+    "mellonPhrase": "Speak 'Mellon' and Enter",
+    "chooseCharacter": "Choose your character",
+    "displayNameLabel": "Display name",
+    "displayNamePlaceholder": "Enter a name, or leave it to your kindred",
+    "displayNameHint": "Leave blank to be known by your character's name.",
+    "enterButton": "Speak 'Mellon' and Enter",
+    "selected": "You walk as {{name}}",
+    "errorGeneric": "The doors will not open. Try again.",
+    "errorNoCharacter": "Choose a character before you enter.",
+    "tabRegister": "New traveller",
+    "tabLogin": "Return",
+    "usernameLabel": "Username",
+    "usernamePlaceholder": "Your name in the Red Book",
+    "passwordLabel": "Password",
+    "passwordPlaceholder": "Your secret word",
+    "passwordHint": "At least 8 characters.",
+    "loginButton": "Enter the gate",
+    "errorInvalidCredentials": "Those words ring false — wrong username or password.",
+    "errorUsernameTaken": "That name is already spoken for. Choose another."
+  },
+  "characters": {
+    "gandalf": {
+      "title": "The Grey Pilgrim",
+      "tagline": "Servant of the Secret Fire"
+    },
+    "legolas": {
+      "title": "Prince of the Woodland Realm",
+      "tagline": "Greenleaf of Mirkwood"
+    },
+    "saruman": {
+      "title": "The White Wizard",
+      "tagline": "Head of the Order of Istari"
+    },
+    "aragorn": {
+      "title": "Heir of Isildur",
+      "tagline": "King Elessar of the Reunited Kingdom"
+    },
+    "gimli": {
+      "title": "Son of Gloin",
+      "tagline": "Lord of the Glittering Caves"
+    },
+    "sam": {
+      "title": "The Gardener",
+      "tagline": "The most faithful of the Shire"
+    },
+    "frodo": {
+      "title": "The Ring-bearer",
+      "tagline": "Master of Bag End"
+    },
+    "boromir": {
+      "title": "Captain of Gondor",
+      "tagline": "Son of the Steward of Minas Tirith"
+    },
+    "gollum": {
+      "title": "Smeagol",
+      "tagline": "Keeper of riddles in the dark"
+    }
+  },
+  "dashboard": {
+    "welcome": "Welcome, {{name}}",
+    "subtitle": "Your chronicle of Middle-earth awaits.",
+    "greeting": {
+      "gandalf": "A wizard is never late, nor is he early. He arrives precisely when he means to.",
+      "legolas": "The stars are veiled, yet your eyes stay keen. Welcome, Greenleaf.",
+      "saruman": "Against the power of Mordor there can be no victory — yet here, you are most welcome.",
+      "aragorn": "There is always hope. Be welcome — the hands of the king are the hands of a healer.",
+      "gimli": "And my axe! Good to see you — a dwarf never forgets a friend.",
+      "sam": "I made a promise, Mr. Frodo. Welcome home — second breakfast is on me.",
+      "frodo": "I am glad you are here with me, at the end of all things. Welcome back.",
+      "boromir": "Gondor welcomes you. The horn of the White City sounds for your return.",
+      "gollum": "Welcome back, my Precious! We missed you, yes we did, gollum, gollum."
+    },
+    "fanMeter": {
+      "title": "LOTR Fan Meter",
+      "percentLabel": "{{value}}% devoted",
+      "booksRead": "{{read}} of {{total}} books read",
+      "profileComplete": "Profile complete",
+      "profileIncomplete": "Complete your profile for more points",
+      "rankLabel": "Rank",
+      "ranks": {
+        "hobbit": "Hobbit of the Shire",
+        "ranger": "Ranger of the North",
+        "fellowship": "Member of the Fellowship",
+        "captain": "Captain of Gondor",
+        "istari": "Initiate of the Istari",
+        "lord": "Lord of the Rings"
+      }
+    },
+    "books": {
+      "title": "The Reading Quest",
+      "subtitle": "Mark each tale as you finish it.",
+      "read": "Read",
+      "unread": "Unread",
+      "markRead": "Mark as read",
+      "markUnread": "Mark as unread",
+      "year": "Published {{year}}"
+    },
+    "profile": {
+      "title": "Your Profile",
+      "displayName": "Display name",
+      "character": "Character",
+      "save": "Save",
+      "saved": "Saved",
+      "namePlaceholder": "Enter a name, or leave it to your kindred"
+    },
+    "signOut": "Sign out"
+  }
+}

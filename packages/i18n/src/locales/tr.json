@@ -1,0 +1,242 @@
+{
+  "common": {
+    "appName": "MiddleEarth-Klip",
+    "tagline": "Orta Dünya'nın gezginleri için bir vakayiname",
+    "language": "Dil",
+    "loading": "Yükleniyor...",
+    "error": "Bir şeyler ters gitti",
+    "retry": "Tekrar dene",
+    "signOut": "Çıkış yap",
+    "back": "Geri",
+    "languages": {
+      "en": "İngilizce",
+      "tr": "Türkçe",
+      "pt": "Portekizce"
+    }
+  },
+  "landing": {
+    "nav": {
+      "lore": "Efsane",
+      "ages": "Çağlar",
+      "enter": "Gir",
+      "gallery": "Galeri",
+      "timeline": "Tarihçe"
+    },
+    "hero": {
+      "eyebrow": "Westmarch'ın Kızıl Kitabı'ndan",
+      "title": "Orta Dünya'nın yollarında yürü",
+      "subtitle": "Soyunu seç, okuduğun öyküleri kaydet ve efsaneye olan sevginin ne kadar derin olduğunu ölç.",
+      "cta": "Yolculuğuna başla"
+    },
+    "artifact": {
+      "title": "Tek Yüzük",
+      "caption": "Hüküm Dağı'nın ateşinde dövülmüş, gizli bir yazıt taşıyan yüzük",
+      "runeNote": "Hepsine hükmedecek Tek Yüzük, hepsini bulacak Tek Yüzük"
+    },
+    "lore": {
+      "title": "Bir efsane ve hafıza çağı",
+      "body": "Ainur'un ezgisinden Son İttifak'ın bozgununa dek, Orta Dünya bir şarkı, hüzün ve sessiz cesaret çağını barındırır. Burada her okur, büyücülerin, kralların ve Shire'ın mütevazı halkının yaptıklarını derleyerek bu öykülerin bekçisi olur."
+    },
+    "ages": {
+      "title": "Dünya'nın Çağları",
+      "intro": "Arda'da zaman büyük Çağlar ile hesaplanır; her biri güçlerin yükselişi ve düşüşüyle damgalanmıştır.",
+      "firstAge": {
+        "title": "Birinci Çağ",
+        "years": "Kadim Günler",
+        "body": "Valinor'un İki Ağacı'yla aydınlanan Kadim Günler. Fëanor Silmarilleri yarattı; onlar uğruna Noldor, Beleriand'da Morgoth'a karşı uzun ve umutsuz savaşlar verdi — Beren ile Lúthien'in, Túrin'in ve Gondolin'in düşüşünün hikâyeleri. Çağ, Valar'ın Morgoth'u Boşluk'a sürmesi ve denizin Beleriand'ı yutmasıyla sona erdi."
+      },
+      "secondAge": {
+        "title": "İkinci Çağ",
+        "years": "İkinci Çağ · 1 – 3441",
+        "body": "Demircilik ve gururun çağı. Eregion'da Elf demircileri Güç Yüzükleri'ni yaptı; Sauron ise Orodruin'in ateşinde hepsini yönetecek Tek Yüzük'ü gizlice dövdü. Númenor ihtişama yükseldi ve yıkımla battı; Elflerin ve İnsanların Son İttifakı Sauron'u devirdi — ama Tek Yüzük yok edilmedi."
+      },
+      "thirdAge": {
+        "title": "Üçüncü Çağ",
+        "years": "Üçüncü Çağ · 1 – 3021",
+        "body": "Elflerin soluşu ve geri dönen Gölge'ye karşı uzun nöbet. Sméagol'ün bulduğu, karanlıkta kaybolan ve sonunda bir hobbit tarafından Shire'dan çıkarılan Tek Yüzük, Yüzük Savaşı'nı başlattı — ve Hüküm Yarıkları'nda yok edilmesiyle son buldu."
+      },
+      "fourthAge": {
+        "title": "Dördüncü Çağ",
+        "years": "Dördüncü Çağ · 1 ve sonrası",
+        "body": "İnsanların Egemenliği başlar. Aragorn, Yeniden Birleşmiş Krallık'ta Kral Elessar olarak hüküm sürer; Yüzük Taşıyıcıları Eldar'ın sonuncularıyla Deniz'i aşar ve dünya efsaneden bildiğimiz tarihe adım atar."
+      }
+    },
+    "cta": {
+      "title": "Yol hep ileri uzanır",
+      "body": "Parolayı söyle, karakterini seç ve öykün de büyükler arasında anılsın.",
+      "button": "Orta Dünya'ya gir"
+    },
+    "gallery": {
+      "title": "Orta Dünya'dan Görünümler",
+      "subtitle": "Derin efsaneden tezhipler — sığınaklar, kartallar ve hepsini bağlayan Yüzük.",
+      "rivendell": {
+        "title": "Ayrıkvadi, Son Konuksever Ev",
+        "caption": "Imladris, Elrond'un sığınağı; Konsey'in toplandığı ve Yüzük Kardeşliği'nin kurulduğu yer."
+      },
+      "ring": {
+        "title": "Tek Yüzük uyanıyor",
+        "caption": "Ateşe atılınca gizli yazıt belirir: hepsini yönetecek tek Yüzük."
+      },
+      "autumn": {
+        "title": "Sonbaharda Imladris",
+        "caption": "Sisli Dağlar'ın eteğindeki gizli vadi, Elflerin solan ışığında altın rengine bürünmüş."
+      },
+      "eagle": {
+        "title": "Manwë'nin Kartalları",
+        "caption": "Rüzgâr Efendisi Gwaihir, Gandalf'ı Isengard halkasının üzerindeki Orthanc'ın doruğundan taşır."
+      },
+      "ringGrass": {
+        "title": "Yeşillikteki Yüzük",
+        "caption": "Gladden Tarlaları'nın ve çağların uzun otları arasında kaybolmuş; Elf harfleri hâlâ parıldıyor."
+      }
+    },
+    "timeline": {
+      "title": "Çağların Vakayinamesi",
+      "intro": "Arda'yı şekillendiren dönüm noktalarından birkaçı — İlkdoğanların uyanışından Yüzük'ün gidişine dek.",
+      "awakening": {
+        "era": "Ağaçların Yılları",
+        "title": "Elfler Uyanıyor",
+        "body": "İlkdoğanlar, yıldızların altında Cuiviénen'de uyanır ve Eldar'ın uzun tarihi başlar."
+      },
+      "rings": {
+        "era": "İ.Ç. ~1500–1600",
+        "title": "Güç Yüzükleri",
+        "body": "Eregion'un Elf demircileri Yüzükler'i döver; Sauron gizlice Hüküm Dağı'nda Tek'i yapar."
+      },
+      "lastAlliance": {
+        "era": "İ.Ç. 3441",
+        "title": "Son İttifak",
+        "body": "Elfler ve İnsanlar Sauron'u yener; Isildur Tek Yüzük'ü alır ama yok etmeyi reddeder."
+      },
+      "gollum": {
+        "era": "Ü.Ç. 2463",
+        "title": "Sméagol ve Yüzük",
+        "body": "Déagol Yüzük'ü Anduin'de bulur; Sméagol onun için cinayet işler ve Gollum'a dönüşür."
+      },
+      "bilbo": {
+        "era": "Ü.Ç. 2941",
+        "title": "Bir Hobbit Bulur",
+        "body": "Bilbo Baggins, Erebor seferi sırasında Yüzük'ü Gollum'un mağarasında bulur."
+      },
+      "warOfRing": {
+        "era": "Ü.Ç. 3018–3019",
+        "title": "Yüzük Savaşı",
+        "body": "Frodo Yüzük'ü Mordor'a taşır; Hüküm Yarıkları'nda yok edilir ve Üçüncü Çağ sona erer."
+      }
+    },
+    "footer": {
+      "text": "J.R.R. Tolkien'in eserlerine hayran yapımı bir saygı duruşudur. Tolkien Mirası ile bağlantılı değildir."
+    }
+  },
+  "auth": {
+    "doorTitle": "Durin'in Kapıları",
+    "doorSubtitle": "Moria'nın Efendisi. Söyle dostum ve gir.",
+    "inscription": "Ennyn Durin Aran Moria: pedo mellon a minno",
+    "mellonPhrase": "Dost de ve Öyle Gir",
+    "chooseCharacter": "Karakterini seç",
+    "displayNameLabel": "Görünen ad",
+    "displayNamePlaceholder": "Bir ad gir ya da soyunun adıyla anıl",
+    "displayNameHint": "Karakterinin adıyla anılmak için boş bırak.",
+    "enterButton": "Dost de ve Öyle Gir",
+    "selected": "{{name}} olarak yürüyorsun",
+    "errorGeneric": "Kapılar açılmıyor. Tekrar dene.",
+    "errorNoCharacter": "Girmeden önce bir karakter seç.",
+    "tabRegister": "Yeni Yolcu",
+    "tabLogin": "Geri Dön",
+    "usernameLabel": "Kullanıcı Adı",
+    "usernamePlaceholder": "Kırmızı Kitap'taki adın",
+    "passwordLabel": "Parola",
+    "passwordPlaceholder": "Gizli sözün",
+    "passwordHint": "En az 8 karakter.",
+    "loginButton": "Kapıdan Gir",
+    "errorInvalidCredentials": "Bu sözler yanlış çınlıyor — kullanıcı adı ya da parola hatalı.",
+    "errorUsernameTaken": "Bu ad çoktan sahiplenilmiş. Başka birini seç."
+  },
+  "characters": {
+    "gandalf": {
+      "title": "Gri Hacı",
+      "tagline": "Gizli Ateş'in Hizmetkârı"
+    },
+    "legolas": {
+      "title": "Orman Diyarı'nın Prensi",
+      "tagline": "Mirkwood'un Yeşilyaprağı"
+    },
+    "saruman": {
+      "title": "Ak Büyücü",
+      "tagline": "İstari Tarikatı'nın Başı"
+    },
+    "aragorn": {
+      "title": "Isildur'un Vârisi",
+      "tagline": "Birleşik Krallık'ın Kralı Elessar"
+    },
+    "gimli": {
+      "title": "Glóin'in Oğlu",
+      "tagline": "Pırıltılı Mağaralar'ın Efendisi"
+    },
+    "sam": {
+      "title": "Bahçıvan",
+      "tagline": "Shire'ın en sadık evladı"
+    },
+    "frodo": {
+      "title": "Yüzük Taşıyıcısı",
+      "tagline": "Bag End'in Efendisi"
+    },
+    "boromir": {
+      "title": "Gondor Kaptanı",
+      "tagline": "Minas Tirith Kâhyası'nın Oğlu"
+    },
+    "gollum": {
+      "title": "Sméagol",
+      "tagline": "Karanlıktaki bilmecelerin koruyucusu"
+    }
+  },
+  "dashboard": {
+    "welcome": "Hoş geldin, {{name}}",
+    "subtitle": "Orta Dünya vakayinamen seni bekliyor.",
+    "greeting": {
+      "gandalf": "Bir büyücü ne geç kalır ne de erken gelir. Tam gelmek istediği anda gelir.",
+      "legolas": "Yıldızlar perdelenmiş olsa da gözlerin keskin kalıyor. Hoş geldin, Yeşilyaprak.",
+      "saruman": "Mordor'un gücüne karşı zafer olamaz — yine de burada başımızın üstünde yerin var.",
+      "aragorn": "Daima umut vardır. Hoş geldin — kralın elleri, bir şifacının elleridir.",
+      "gimli": "Bir de baltam! Seni görmek güzel — bir cüce dostunu asla unutmaz.",
+      "sam": "Bir söz vermiştim, Bay Frodo. Evine hoş geldin — ikinci kahvaltı benden.",
+      "frodo": "Her şeyin sonunda burada, yanımda olmana sevindim. Tekrar hoş geldin.",
+      "boromir": "Gondor seni karşılıyor. Ak Şehir'in borusu dönüşün için çalıyor.",
+      "gollum": "Tekrar hoş geldin, Kıymetlim! Seni özledik, evet özledik, gollum, gollum."
+    },
+    "fanMeter": {
+      "title": "Yüzüklerin Efendisi Hayran Ölçeri",
+      "percentLabel": "%{{value}} bağlı",
+      "booksRead": "{{total}} kitaptan {{read}} tanesi okundu",
+      "profileComplete": "Profil tamamlandı",
+      "profileIncomplete": "Daha fazla puan için profilini tamamla",
+      "rankLabel": "Mertebe",
+      "ranks": {
+        "hobbit": "Shire Hobbiti",
+        "ranger": "Kuzey'in Kolcusu",
+        "fellowship": "Yüzük Kardeşliği Üyesi",
+        "captain": "Gondor Kaptanı",
+        "istari": "İstari Çırağı",
+        "lord": "Yüzüklerin Efendisi"
+      }
+    },
+    "books": {
+      "title": "Okuma Macerası",
+      "subtitle": "Bitirdikçe her öyküyü işaretle.",
+      "read": "Okundu",
+      "unread": "Okunmadı",
+      "markRead": "Okundu olarak işaretle",
+      "markUnread": "Okunmadı olarak işaretle",
+      "year": "{{year}} yılında yayımlandı"
+    },
+    "profile": {
+      "title": "Profilin",
+      "displayName": "Görünen ad",
+      "character": "Karakter",
+      "save": "Kaydet",
+      "saved": "Kaydedildi",
+      "namePlaceholder": "Bir ad gir ya da soyunun adıyla anıl"
+    },
+    "signOut": "Çıkış yap"
+  }
+}

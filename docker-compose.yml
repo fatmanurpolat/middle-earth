@@ -1,0 +1,59 @@
+# MiddleEarth-Klip — local infrastructure
+#
+#   docker compose up -d postgres          # just the database (default)
+#   docker compose --profile full up -d    # database + backend together
+#
+services:
+  postgres:
+    image: postgres:16-alpine
+    container_name: middleearth-postgres
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: middleearth
+      POSTGRES_PASSWORD: middleearth
+      POSTGRES_DB: middleearth
+    ports:
+      # Host port is configurable to avoid clashes with other local Postgres
+      # instances; the in-container port stays 5432. Override via POSTGRES_PORT.
+      - '${POSTGRES_PORT:-5432}:5432'
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+      # Migrations in ./db/migrations are auto-applied on FIRST boot only
+      # (when the data volume is empty). Run `npm run db:reset` to re-apply.
+      - ./db/migrations:/docker-entrypoint-initdb.d:ro
+    healthcheck:
+      test: ['CMD-SHELL', 'pg_isready -U middleearth -d middleearth']
+      interval: 5s
+      timeout: 5s
+      retries: 10
+      start_period: 10s
+
+  backend:
+    # Build context is the repo ROOT: the backend bundles @middleearth/shared
+    # (TypeScript source) at build time, so the whole workspace must be visible.
+    build:
+      context: .
+      dockerfile: apps/backend/Dockerfile
+    container_name: middleearth-backend
+    restart: unless-stopped
+    profiles:
+      - full
+    depends_on:
+      postgres:
+        condition: service_healthy
+    environment:
+      NODE_ENV: production
+      HOST: 0.0.0.0
+      PORT: '3000'
+      # In-container port is ALWAYS 5432 (the POSTGRES_PORT host remap does not
+      # change it). Containers talk to each other on the service name + 5432.
+      DATABASE_URL: postgres://middleearth:middleearth@postgres:5432/middleearth
+      JWT_SECRET: change-me-please-use-a-long-random-secret
+      JWT_EXPIRES_IN: 7d
+      CORS_ORIGINS: http://localhost:5173,http://localhost:5174
+    ports:
+      - '${BACKEND_PORT:-3000}:3000'
+
+volumes:
+  pgdata:
+    driver: local

@@ -1,0 +1,19 @@
+-- ─────────────────────────────────────────────────────────────────────────────
+-- MiddleEarth-Klip — optional seed data
+--
+-- This file is NOT applied automatically. Run it by hand against a running DB:
+--
+--   psql "postgres://middleearth:middleearth@localhost:5432/middleearth" \
+--        -f db/seed.sql
+--
+-- Everything below is commented out by default. Uncomment to create a sample
+-- Frodo user who has read The Fellowship of the Ring.
+-- ─────────────────────────────────────────────────────────────────────────────
+
+-- WITH seeded_user AS (
+--   INSERT INTO users (custom_name, chosen_character)
+--   VALUES ('Mr. Underhill', 'frodo')
+--   RETURNING id
+-- )
+-- INSERT INTO book_progress (user_id, book_id, is_read)
+-- SELECT id, 'the-fellowship-of-the-ring', true FROM seeded_user;
