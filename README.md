@@ -306,3 +306,4 @@ from Google Fonts). Soft golden-glow and rune-shimmer animations and a per-chara
 
 Fan project for educational purposes. _The Lord of the Rings_, its characters and
 places are the property of the Tolkien Estate and their respective rights holders.
+# middle-earth
