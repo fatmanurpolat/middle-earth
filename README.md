@@ -1,9 +1,9 @@
-# MiddleEarth-Klip
+# Middle Earth
 
 > _"Ennyn Durin Aran Moria: pedo mellon a minno."_
 > _The Doors of Durin, Lord of Moria. Speak, friend, and enter._
 
-**MiddleEarth-Klip** is a Lord of the Rings fan app. Pass through the Doors of Durin
+**Middle Earth** is a Lord of the Rings fan app. Pass through the Doors of Durin
 by speaking _"Mellon"_, choose your fellowship of nine heroes, track the books you
 have read across the legendarium, and watch your **LOTR Fan Meter** rise from a
 humble Hobbit of the Shire all the way to a Lord of the Rings.

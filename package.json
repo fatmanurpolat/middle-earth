@@ -4,7 +4,7 @@
   "private": true,
   "type": "module",
   "packageManager": "npm@11.13.0",
-  "description": "MiddleEarth-Klip — a Lord of the Rings fan app (npm-workspaces + Turborepo monorepo).",
+  "description": "Middle Earth — a Lord of the Rings fan app (npm-workspaces + Turborepo monorepo).",
   "workspaces": [
     "apps/*",
     "packages/*"

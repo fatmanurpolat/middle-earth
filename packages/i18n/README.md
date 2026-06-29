@@ -1,6 +1,6 @@
 # @middleearth/i18n
 
-Locale resources for **MiddleEarth-Klip**, ready to feed into
+Locale resources for **Middle Earth**, ready to feed into
 [i18next](https://www.i18next.com/) + [react-i18next](https://react.i18next.com/).
 
 This package exports the raw translation `resources` object plus a few helper

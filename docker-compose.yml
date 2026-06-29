@@ -1,4 +1,4 @@
-# MiddleEarth-Klip — local infrastructure
+# Middle Earth — local infrastructure
 #
 #   docker compose up -d postgres          # just the database (default)
 #   docker compose --profile full up -d    # database + backend together
