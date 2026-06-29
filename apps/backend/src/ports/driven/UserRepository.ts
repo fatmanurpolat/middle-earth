@@ -28,4 +28,6 @@ export interface UserRepository {
   updateCustomName(id: string, customName: string | null): Promise<User>;
   /** Replace the stored password hash for a user. */
   updatePasswordHash(id: string, passwordHash: string): Promise<void>;
+  /** Set (or clear) the avatar object-storage key for a user. */
+  updateAvatarKey(id: string, avatarKey: string | null): Promise<User>;
 }

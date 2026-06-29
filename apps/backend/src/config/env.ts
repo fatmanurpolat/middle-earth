@@ -32,6 +32,19 @@ const envSchema = z.object({
     .default(DEFAULT_CORS_ORIGINS)
     .transform(csvToStringArray)
     .pipe(z.array(z.string().min(1)).min(1)),
+  // Public base URL of this API, used to build absolute avatar URLs.
+  PUBLIC_API_URL: z.string().min(1).default('http://localhost:3000/api'),
+  // ── MinIO / object storage ──
+  MINIO_ENDPOINT: z.string().min(1).default('localhost'),
+  MINIO_PORT: z.coerce.number().int().positive().max(65535).default(9000),
+  // z.coerce.boolean treats any non-empty string as true, so parse explicitly.
+  MINIO_USE_SSL: z
+    .string()
+    .default('false')
+    .transform((v) => v === 'true' || v === '1'),
+  MINIO_ACCESS_KEY: z.string().min(1).default('middleearth'),
+  MINIO_SECRET_KEY: z.string().min(1).default('middleearth-minio-secret'),
+  MINIO_BUCKET: z.string().min(1).default('avatars'),
 });
 
 export type Env = z.infer<typeof envSchema>;

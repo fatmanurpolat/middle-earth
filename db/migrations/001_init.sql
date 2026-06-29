@@ -13,6 +13,7 @@ CREATE TABLE IF NOT EXISTS users (
   username         text NOT NULL,
   password_hash    text NOT NULL,
   custom_name      text NULL,
+  avatar_key       text NULL,
   chosen_character text NOT NULL CHECK (
     chosen_character IN (
       'gandalf',

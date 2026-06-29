@@ -294,6 +294,11 @@
       "submit": "Parolayı güncelle",
       "saved": "Parola güncellendi.",
       "errorCurrentWrong": "Mevcut parolan yanlış."
+    },
+    "avatar": {
+      "change": "Fotoğrafı değiştir",
+      "errorType": "Lütfen JPEG, PNG veya WebP bir görsel seç.",
+      "errorSize": "Görsel en fazla 5 MB olmalı."
     }
   }
 }

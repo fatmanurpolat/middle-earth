@@ -6,6 +6,7 @@ import type {
 import type { ProfileUseCase } from '../../../../ports/driving/ProfileUseCase.js';
 import { requireUserId } from '../authPlugin.js';
 import { changePasswordBodySchema, updateProfileBodySchema } from '../schemas.js';
+import { ValidationError } from '../../../../domain/errors/DomainError.js';
 
 export interface MeRouteDeps {
   profileUseCase: ProfileUseCase;
@@ -43,6 +44,25 @@ export function meRoutes(deps: MeRouteDeps): FastifyPluginAsync {
           body.newPassword,
         );
         return reply.status(204).send();
+      },
+    );
+
+    // Multipart avatar upload (field name "file").
+    app.post(
+      '/me/avatar',
+      { preHandler: deps.authenticate },
+      async (request, reply) => {
+        const userId = requireUserId(request);
+        const data = await request.file();
+        if (!data) {
+          throw new ValidationError('No image file was uploaded.');
+        }
+        const body = await data.toBuffer();
+        const result = await deps.profileUseCase.setAvatar(userId, {
+          body,
+          contentType: data.mimetype,
+        });
+        return reply.send(result);
       },
     );
   };

@@ -1,6 +1,8 @@
 import { loadEnvFiles } from './config/loadEnvFiles.js';
 import { loadEnv } from './config/env.js';
 import { createPool } from './adapters/driven/postgres/pool.js';
+import { ensureSchema } from './adapters/driven/postgres/ensureSchema.js';
+import { MinioObjectStorage } from './adapters/driven/storage/MinioObjectStorage.js';
 import { PostgresUserRepository } from './adapters/driven/postgres/PostgresUserRepository.js';
 import { PostgresBookProgressRepository } from './adapters/driven/postgres/PostgresBookProgressRepository.js';
 import { PostgresSessionRepository } from './adapters/driven/postgres/PostgresSessionRepository.js';
@@ -24,6 +26,19 @@ async function bootstrap(): Promise<void> {
 
   // ---- Driven adapters (infrastructure) ----
   const pool = createPool(env.DATABASE_URL);
+  // Apply idempotent schema touch-ups (e.g. the avatar_key column) so existing
+  // databases pick up later columns without a destructive reset.
+  await ensureSchema(pool);
+
+  const objectStorage = new MinioObjectStorage({
+    endPoint: env.MINIO_ENDPOINT,
+    port: env.MINIO_PORT,
+    useSSL: env.MINIO_USE_SSL,
+    accessKey: env.MINIO_ACCESS_KEY,
+    secretKey: env.MINIO_SECRET_KEY,
+    bucket: env.MINIO_BUCKET,
+  });
+
   const userRepository = new PostgresUserRepository(pool);
   const bookProgressRepository = new PostgresBookProgressRepository(pool);
   const sessionRepository = new PostgresSessionRepository(pool);
@@ -43,18 +58,29 @@ async function bootstrap(): Promise<void> {
     sessionRepository,
     tokenService,
     passwordHasher,
+    env.PUBLIC_API_URL,
   );
   const profileUseCase = new ProfileService(
     userRepository,
     bookProgressRepository,
     fanMeterService,
     passwordHasher,
+    objectStorage,
+    env.PUBLIC_API_URL,
   );
   const bookTrackerUseCase = new BookTrackerService(
     userRepository,
     bookProgressRepository,
     fanMeterService,
   );
+
+  // Ensure the storage bucket exists (best-effort — the rest of the API still
+  // works if MinIO is briefly unavailable; only avatar uploads would fail).
+  try {
+    await objectStorage.ensureBucket();
+  } catch (error) {
+    console.warn('Could not ensure MinIO bucket; avatars may be unavailable.', error);
+  }
 
   // ---- Driving adapter (HTTP) ----
   const server = await buildServer({

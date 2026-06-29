@@ -8,6 +8,8 @@ export interface UserDTO {
   customName: string | null;
   chosenCharacter: CharacterId;
   displayName: string;
+  /** Absolute URL of the user's uploaded avatar, or null if none. */
+  avatarUrl: string | null;
   createdAt: string;
 }
 

@@ -185,6 +185,61 @@ export class ApiClient {
     });
   }
 
+  /** Upload a new avatar image (multipart/form-data, field name "file"). */
+  async uploadAvatar(file: File, signal?: AbortSignal): Promise<ProfileResponse> {
+    const token = this.getToken();
+    const headers: Record<string, string> = {};
+    if (token) {
+      headers['Authorization'] = `Bearer ${token}`;
+    }
+
+    const form = new FormData();
+    form.append('file', file);
+
+    let response: Response;
+    try {
+      response = await fetch(`${this.baseUrl}/me/avatar`, {
+        method: 'POST',
+        headers, // do NOT set Content-Type; the browser adds the multipart boundary
+        body: form,
+        signal,
+      });
+    } catch (cause) {
+      throw new ApiError(
+        0,
+        'NETWORK_ERROR',
+        cause instanceof Error ? cause.message : 'Network request failed',
+        cause,
+      );
+    }
+
+    let payload: unknown = null;
+    const text = await response.text();
+    if (text.length > 0) {
+      try {
+        payload = JSON.parse(text) as unknown;
+      } catch {
+        payload = null;
+      }
+    }
+    if (!response.ok) {
+      if (isApiErrorBody(payload)) {
+        throw new ApiError(
+          response.status,
+          payload.error.code,
+          payload.error.message,
+          payload.error.details,
+        );
+      }
+      throw new ApiError(
+        response.status,
+        'HTTP_ERROR',
+        `Request failed with status ${response.status}`,
+      );
+    }
+    return payload as ProfileResponse;
+  }
+
   getProgress(signal?: AbortSignal): Promise<ProgressResponse> {
     return this.request<ProgressResponse>('/books/progress', {
       auth: true,

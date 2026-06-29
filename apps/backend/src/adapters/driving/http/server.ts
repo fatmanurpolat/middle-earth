@@ -1,5 +1,6 @@
 import Fastify, { type FastifyInstance } from 'fastify';
 import cors from '@fastify/cors';
+import multipart from '@fastify/multipart';
 import { ZodError } from 'zod';
 import type { ApiErrorBody } from '@middleearth/shared';
 import { DomainError } from '../../../domain/errors/DomainError.js';
@@ -15,6 +16,7 @@ import { catalogRoutes } from './routes/catalog.js';
 import { authRoutes } from './routes/auth.js';
 import { meRoutes } from './routes/me.js';
 import { bookRoutes } from './routes/books.js';
+import { avatarRoutes } from './routes/avatars.js';
 
 export interface ServerDeps {
   authUseCase: AuthUseCase;
@@ -41,6 +43,11 @@ export async function buildServer(deps: ServerDeps): Promise<FastifyInstance> {
     origin: deps.corsOrigins,
     methods: ['GET', 'POST', 'PATCH', 'PUT', 'DELETE', 'OPTIONS'],
     allowedHeaders: ['Content-Type', 'Authorization'],
+  });
+
+  // Avatar uploads (single image, max 5 MB).
+  await app.register(multipart, {
+    limits: { fileSize: 5 * 1024 * 1024, files: 1 },
   });
 
   app.setErrorHandler((error, request, reply) => {
@@ -121,6 +128,9 @@ export async function buildServer(deps: ServerDeps): Promise<FastifyInstance> {
       );
       await api.register(
         meRoutes({ profileUseCase: deps.profileUseCase, authenticate }),
+      );
+      await api.register(
+        avatarRoutes({ profileUseCase: deps.profileUseCase }),
       );
       await api.register(
         bookRoutes({

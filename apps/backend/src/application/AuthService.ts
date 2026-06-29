@@ -22,6 +22,7 @@ export class AuthService implements AuthUseCase {
     private readonly sessions: SessionRepository,
     private readonly tokens: TokenService,
     private readonly passwords: PasswordHasher,
+    private readonly publicApiUrl: string,
   ) {}
 
   async register(cmd: RegisterCommand): Promise<AuthResponse> {
@@ -64,7 +65,7 @@ export class AuthService implements AuthUseCase {
   private async issueSession(user: User): Promise<AuthResponse> {
     const { token, expiresAt } = this.tokens.sign({ sub: user.id });
     await this.sessions.create(user.id, this.tokens.hash(token), expiresAt);
-    return { token, user: toUserDTO(user) };
+    return { token, user: toUserDTO(user, this.publicApiUrl) };
   }
 }
 

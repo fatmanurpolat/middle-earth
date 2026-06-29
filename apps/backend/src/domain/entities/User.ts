@@ -10,6 +10,8 @@ export class User {
     public readonly customName: string | null,
     public readonly chosenCharacter: CharacterId,
     public readonly createdAt: Date,
+    /** Object-storage key of the uploaded avatar, or null if none. */
+    public readonly avatarKey: string | null = null,
   ) {}
 
   /**

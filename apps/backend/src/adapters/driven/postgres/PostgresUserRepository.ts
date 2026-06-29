@@ -19,10 +19,11 @@ interface UserRow {
   custom_name: string | null;
   chosen_character: string;
   created_at: Date;
+  avatar_key: string | null;
 }
 
 const USER_COLUMNS =
-  'id, username, password_hash, custom_name, chosen_character, created_at';
+  'id, username, password_hash, custom_name, chosen_character, created_at, avatar_key';
 
 /**
  * PostgreSQL-backed UserRepository. Parametrized queries only.
@@ -111,6 +112,22 @@ export class PostgresUserRepository implements UserRepository {
     }
   }
 
+  async updateAvatarKey(id: string, avatarKey: string | null): Promise<User> {
+    const result = await this.pool.query<UserRow>(
+      `UPDATE users
+       SET avatar_key = $2
+       WHERE id = $1
+       RETURNING ${USER_COLUMNS}`,
+      [id, avatarKey],
+    );
+
+    const row = result.rows[0];
+    if (!row) {
+      throw new NotFoundError('User not found');
+    }
+    return this.toEntity(row);
+  }
+
   async updateCustomName(id: string, customName: string | null): Promise<User> {
     const result = await this.pool.query<UserRow>(
       `UPDATE users
@@ -141,6 +158,7 @@ export class PostgresUserRepository implements UserRepository {
       row.custom_name,
       chosenCharacter,
       new Date(row.created_at),
+      row.avatar_key,
     );
   }
 }

@@ -169,12 +169,12 @@
     "doorTitle": "The Doors of Durin",
     "doorSubtitle": "Lord of Moria. Speak, friend, and enter.",
     "inscription": "Ennyn Durin Aran Moria: pedo mellon a minno",
-    "mellonPhrase": "Speak 'Mellon' and Enter",
+    "mellonPhrase": "Speak 'APLEE' and Enter",
     "chooseCharacter": "Choose your character",
     "displayNameLabel": "Display name",
     "displayNamePlaceholder": "Enter a name, or leave it to your kindred",
     "displayNameHint": "Leave blank to be known by your character's name.",
-    "enterButton": "Speak 'Mellon' and Enter",
+    "enterButton": "Speak 'APLEE' and Enter",
     "selected": "You walk as {{name}}",
     "errorGeneric": "The doors will not open. Try again.",
     "errorNoCharacter": "Choose a character before you enter.",
@@ -294,6 +294,11 @@
       "submit": "Update password",
       "saved": "Password updated.",
       "errorCurrentWrong": "Your current password is incorrect."
+    },
+    "avatar": {
+      "change": "Change photo",
+      "errorType": "Please choose a JPEG, PNG or WebP image.",
+      "errorSize": "Image must be 5 MB or smaller."
     }
   }
 }

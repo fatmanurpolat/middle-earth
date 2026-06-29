@@ -294,6 +294,11 @@
       "submit": "Atualizar palavra-passe",
       "saved": "Palavra-passe atualizada.",
       "errorCurrentWrong": "A tua palavra-passe atual está incorreta."
+    },
+    "avatar": {
+      "change": "Mudar foto",
+      "errorType": "Escolhe uma imagem JPEG, PNG ou WebP.",
+      "errorSize": "A imagem deve ter no máximo 5 MB."
     }
   }
 }

@@ -6,15 +6,25 @@ import type { BookProgressEntry } from '../domain/entities/BookProgressEntry.js'
  * Map a domain User to the wire UserDTO. `displayName` follows the shared rule:
  * trimmed custom name when non-empty, else the character's canonical name.
  */
-export function toUserDTO(user: User): UserDTO {
+export function toUserDTO(user: User, publicApiUrl: string): UserDTO {
+  const base = publicApiUrl.replace(/\/+$/, '');
   return {
     id: user.id,
     username: user.username,
     customName: user.customName,
     chosenCharacter: user.chosenCharacter,
     displayName: user.displayName(),
+    avatarUrl: user.avatarKey
+      ? `${base}/avatars/${user.id}?v=${avatarVersion(user.avatarKey)}`
+      : null,
     createdAt: user.createdAt.toISOString(),
   };
+}
+
+/** Short cache-busting token derived from the avatar key (changes per upload). */
+function avatarVersion(avatarKey: string): string {
+  const file = avatarKey.split('/').pop() ?? avatarKey;
+  return file.split('.')[0]?.slice(0, 12) ?? '1';
 }
 
 /**

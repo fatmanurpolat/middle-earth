@@ -1,4 +1,11 @@
-import { useEffect, useRef, useState, type FormEvent } from 'react';
+import {
+  useEffect,
+  useRef,
+  useState,
+  type ChangeEvent,
+  type CSSProperties,
+  type FormEvent,
+} from 'react';
 import { useTranslation } from 'react-i18next';
 import { getCharacter } from '@middleearth/shared';
 import { useAuth } from '../auth/AuthContext';
@@ -14,6 +21,45 @@ export default function ProfileCard() {
   const [saved, setSaved] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const savedTimer = useRef<number | null>(null);
+
+  const fileInputRef = useRef<HTMLInputElement | null>(null);
+  const [uploading, setUploading] = useState(false);
+  const [avatarError, setAvatarError] = useState<string | null>(null);
+
+  const ALLOWED_TYPES = ['image/jpeg', 'image/png', 'image/webp'];
+  const MAX_AVATAR_BYTES = 5 * 1024 * 1024;
+
+  const handleAvatarFile = async (event: ChangeEvent<HTMLInputElement>) => {
+    const file = event.target.files?.[0];
+    event.target.value = ''; // allow re-selecting the same file later
+    if (!file) {
+      return;
+    }
+    setAvatarError(null);
+    if (!ALLOWED_TYPES.includes(file.type)) {
+      setAvatarError(t('dashboard.avatar.errorType'));
+      return;
+    }
+    if (file.size > MAX_AVATAR_BYTES) {
+      setAvatarError(t('dashboard.avatar.errorSize'));
+      return;
+    }
+    setUploading(true);
+    try {
+      const response = await api.uploadAvatar(file);
+      applyUser(response.user, response.fanMeter);
+    } catch (err) {
+      if (err instanceof ApiError) {
+        setAvatarError(
+          err.status === 0 ? t('auth.errorNetwork') : err.message || t('common.error'),
+        );
+      } else {
+        setAvatarError(t('common.error'));
+      }
+    } finally {
+      setUploading(false);
+    }
+  };
 
   // Keep the input in sync when the user is (re)hydrated externally.
   useEffect(() => {
@@ -67,7 +113,35 @@ export default function ProfileCard() {
       </h2>
 
       <div className="mt-4 flex items-center gap-4">
-        <CharacterSigil character={character} size="md" glow />
+        <button
+          type="button"
+          onClick={() => fileInputRef.current?.click()}
+          disabled={uploading}
+          aria-label={t('dashboard.avatar.change')}
+          title={t('dashboard.avatar.change')}
+          className="focus-ring group relative h-16 w-16 flex-none rounded-full disabled:cursor-wait"
+        >
+          {user.avatarUrl ? (
+            <img
+              src={user.avatarUrl}
+              alt={user.displayName}
+              className="h-16 w-16 rounded-full object-cover"
+              style={{ boxShadow: '0 0 0 2px var(--accent)' } as CSSProperties}
+            />
+          ) : (
+            <CharacterSigil character={character} size="md" glow />
+          )}
+          <span className="absolute inset-0 flex items-center justify-center rounded-full bg-ink/70 text-center text-[0.6rem] font-display uppercase tracking-wide text-parchment opacity-0 transition-opacity group-hover:opacity-100">
+            {uploading ? t('common.loading') : t('dashboard.avatar.change')}
+          </span>
+        </button>
+        <input
+          ref={fileInputRef}
+          type="file"
+          accept="image/png,image/jpeg,image/webp"
+          className="hidden"
+          onChange={handleAvatarFile}
+        />
         <div className="min-w-0">
           <p className="text-xs uppercase tracking-[0.16em] text-mithril/50">
             {t('dashboard.profile.character')}
@@ -83,6 +157,15 @@ export default function ProfileCard() {
           </p>
         </div>
       </div>
+
+      {avatarError && (
+        <p
+          role="alert"
+          className="mt-3 rounded-lg border border-ember/40 bg-ember/15 px-3 py-2 text-sm text-parchment"
+        >
+          {avatarError}
+        </p>
+      )}
 
       <form onSubmit={handleSubmit} className="mt-5" noValidate>
         <label
