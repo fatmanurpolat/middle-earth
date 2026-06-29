@@ -48,6 +48,7 @@ async function bootstrap(): Promise<void> {
     userRepository,
     bookProgressRepository,
     fanMeterService,
+    passwordHasher,
   );
   const bookTrackerUseCase = new BookTrackerService(
     userRepository,

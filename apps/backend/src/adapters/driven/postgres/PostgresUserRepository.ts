@@ -88,6 +88,29 @@ export class PostgresUserRepository implements UserRepository {
     return { user: this.toEntity(row), passwordHash: row.password_hash };
   }
 
+  async findCredentialsById(id: string): Promise<UserWithCredentials | null> {
+    const result = await this.pool.query<UserRow>(
+      `SELECT ${USER_COLUMNS} FROM users WHERE id = $1`,
+      [id],
+    );
+
+    const row = result.rows[0];
+    if (!row) {
+      return null;
+    }
+    return { user: this.toEntity(row), passwordHash: row.password_hash };
+  }
+
+  async updatePasswordHash(id: string, passwordHash: string): Promise<void> {
+    const result = await this.pool.query(
+      `UPDATE users SET password_hash = $2 WHERE id = $1`,
+      [id, passwordHash],
+    );
+    if (result.rowCount === 0) {
+      throw new NotFoundError('User not found');
+    }
+  }
+
   async updateCustomName(id: string, customName: string | null): Promise<User> {
     const result = await this.pool.query<UserRow>(
       `UPDATE users

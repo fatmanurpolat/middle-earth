@@ -150,7 +150,18 @@
     "passwordHint": "At least 8 characters.",
     "loginButton": "Enter the gate",
     "errorInvalidCredentials": "Those words ring false — wrong username or password.",
-    "errorUsernameTaken": "That name is already spoken for. Choose another."
+    "errorUsernameTaken": "That name is already spoken for. Choose another.",
+    "showPassword": "Show password",
+    "hidePassword": "Hide password",
+    "confirmPasswordLabel": "Confirm password",
+    "confirmPasswordPlaceholder": "Repeat your password",
+    "errorUsernameRequired": "Enter a username.",
+    "errorUsernameShort": "Username must be at least 3 characters.",
+    "errorPasswordRequired": "Enter a password.",
+    "errorPasswordShort": "Password must be at least 8 characters.",
+    "errorPasswordMismatch": "Passwords do not match.",
+    "errorNetwork": "Could not reach the server. Check your connection and try again.",
+    "errorValidation": "Please check the form and try again."
   },
   "characters": {
     "gandalf": {
@@ -237,6 +248,15 @@
       "saved": "Saved",
       "namePlaceholder": "Enter a name, or leave it to your kindred"
     },
-    "signOut": "Sign out"
+    "signOut": "Sign out",
+    "password": {
+      "title": "Change Password",
+      "current": "Current password",
+      "new": "New password",
+      "confirm": "Confirm new password",
+      "submit": "Update password",
+      "saved": "Password updated.",
+      "errorCurrentWrong": "Your current password is incorrect."
+    }
   }
 }

@@ -2,6 +2,7 @@ import type {
   ApiErrorBody,
   AuthResponse,
   Book,
+  ChangePasswordRequest,
   Character,
   LoginRequest,
   MeResponse,
@@ -168,6 +169,15 @@ export class ApiClient {
     signal?: AbortSignal,
   ): Promise<ProfileResponse> {
     return this.request<ProfileResponse>('/me', {
+      method: 'PATCH',
+      body: input,
+      auth: true,
+      signal,
+    });
+  }
+
+  changePassword(input: ChangePasswordRequest, signal?: AbortSignal): Promise<void> {
+    return this.request<void>('/me/password', {
       method: 'PATCH',
       body: input,
       auth: true,

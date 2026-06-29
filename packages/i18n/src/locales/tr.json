@@ -150,7 +150,18 @@
     "passwordHint": "En az 8 karakter.",
     "loginButton": "Kapıdan Gir",
     "errorInvalidCredentials": "Bu sözler yanlış çınlıyor — kullanıcı adı ya da parola hatalı.",
-    "errorUsernameTaken": "Bu ad çoktan sahiplenilmiş. Başka birini seç."
+    "errorUsernameTaken": "Bu ad çoktan sahiplenilmiş. Başka birini seç.",
+    "showPassword": "Parolayı göster",
+    "hidePassword": "Parolayı gizle",
+    "confirmPasswordLabel": "Parola (tekrar)",
+    "confirmPasswordPlaceholder": "Parolanı tekrar gir",
+    "errorUsernameRequired": "Kullanıcı adı gir.",
+    "errorUsernameShort": "Kullanıcı adı en az 3 karakter olmalı.",
+    "errorPasswordRequired": "Parola gir.",
+    "errorPasswordShort": "Parola en az 8 karakter olmalı.",
+    "errorPasswordMismatch": "Parolalar eşleşmiyor.",
+    "errorNetwork": "Sunucuya ulaşılamadı. Bağlantını kontrol edip tekrar dene.",
+    "errorValidation": "Lütfen bilgileri kontrol edip tekrar dene."
   },
   "characters": {
     "gandalf": {
@@ -237,6 +248,15 @@
       "saved": "Kaydedildi",
       "namePlaceholder": "Bir ad gir ya da soyunun adıyla anıl"
     },
-    "signOut": "Çıkış yap"
+    "signOut": "Çıkış yap",
+    "password": {
+      "title": "Parola Değiştir",
+      "current": "Mevcut parola",
+      "new": "Yeni parola",
+      "confirm": "Yeni parola (tekrar)",
+      "submit": "Parolayı güncelle",
+      "saved": "Parola güncellendi.",
+      "errorCurrentWrong": "Mevcut parolan yanlış."
+    }
   }
 }

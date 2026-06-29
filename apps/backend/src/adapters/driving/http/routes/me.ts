@@ -5,7 +5,7 @@ import type {
 } from 'fastify';
 import type { ProfileUseCase } from '../../../../ports/driving/ProfileUseCase.js';
 import { requireUserId } from '../authPlugin.js';
-import { updateProfileBodySchema } from '../schemas.js';
+import { changePasswordBodySchema, updateProfileBodySchema } from '../schemas.js';
 
 export interface MeRouteDeps {
   profileUseCase: ProfileUseCase;
@@ -14,8 +14,9 @@ export interface MeRouteDeps {
 
 /**
  * Current-user endpoints (all authenticated):
- *   GET   /me -> MeResponse
- *   PATCH /me -> ProfileResponse
+ *   GET   /me          -> MeResponse
+ *   PATCH /me          -> ProfileResponse
+ *   PATCH /me/password -> 204 (change password)
  */
 export function meRoutes(deps: MeRouteDeps): FastifyPluginAsync {
   return async (app: FastifyInstance): Promise<void> => {
@@ -29,5 +30,20 @@ export function meRoutes(deps: MeRouteDeps): FastifyPluginAsync {
       const body = updateProfileBodySchema.parse(request.body);
       return deps.profileUseCase.updateName(userId, body.customName);
     });
+
+    app.patch(
+      '/me/password',
+      { preHandler: deps.authenticate },
+      async (request, reply) => {
+        const userId = requireUserId(request);
+        const body = changePasswordBodySchema.parse(request.body);
+        await deps.profileUseCase.changePassword(
+          userId,
+          body.currentPassword,
+          body.newPassword,
+        );
+        return reply.status(204).send();
+      },
+    );
   };
 }

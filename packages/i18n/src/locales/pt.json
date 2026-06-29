@@ -150,7 +150,18 @@
     "passwordHint": "Pelo menos 8 caracteres.",
     "loginButton": "Atravessar o portão",
     "errorInvalidCredentials": "Essas palavras soam falsas — utilizador ou palavra-passe errados.",
-    "errorUsernameTaken": "Esse nome já está tomado. Escolhe outro."
+    "errorUsernameTaken": "Esse nome já está tomado. Escolhe outro.",
+    "showPassword": "Mostrar palavra-passe",
+    "hidePassword": "Ocultar palavra-passe",
+    "confirmPasswordLabel": "Confirmar palavra-passe",
+    "confirmPasswordPlaceholder": "Repete a tua palavra-passe",
+    "errorUsernameRequired": "Introduz um nome de utilizador.",
+    "errorUsernameShort": "O nome de utilizador deve ter pelo menos 3 caracteres.",
+    "errorPasswordRequired": "Introduz uma palavra-passe.",
+    "errorPasswordShort": "A palavra-passe deve ter pelo menos 8 caracteres.",
+    "errorPasswordMismatch": "As palavras-passe não coincidem.",
+    "errorNetwork": "Não foi possível contactar o servidor. Verifica a ligação e tenta de novo.",
+    "errorValidation": "Verifica os dados e tenta de novo."
   },
   "characters": {
     "gandalf": {
@@ -237,6 +248,15 @@
       "saved": "Salvo",
       "namePlaceholder": "Digite um nome ou deixe que o seu povo o nomeie"
     },
-    "signOut": "Sair"
+    "signOut": "Sair",
+    "password": {
+      "title": "Alterar palavra-passe",
+      "current": "Palavra-passe atual",
+      "new": "Nova palavra-passe",
+      "confirm": "Confirmar nova palavra-passe",
+      "submit": "Atualizar palavra-passe",
+      "saved": "Palavra-passe atualizada.",
+      "errorCurrentWrong": "A tua palavra-passe atual está incorreta."
+    }
   }
 }

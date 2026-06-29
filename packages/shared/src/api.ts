@@ -55,6 +55,12 @@ export interface UpdateProfileRequest {
   customName: string | null;
 }
 
+/** PATCH /api/me/password — change the signed-in user's password. */
+export interface ChangePasswordRequest {
+  currentPassword: string;
+  newPassword: string;
+}
+
 export interface ProgressResponse {
   progress: BookProgressDTO[];
   fanMeter: FanMeterResult;

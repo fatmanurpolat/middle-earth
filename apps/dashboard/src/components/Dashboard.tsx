@@ -9,6 +9,7 @@ import Greeting from './Greeting';
 import FanMeter from './FanMeter';
 import BookTracker from './BookTracker';
 import ProfileCard from './ProfileCard';
+import ChangePassword from './ChangePassword';
 import SignOutButton from './SignOutButton';
 import LanguageSwitcher from './LanguageSwitcher';
 
@@ -75,8 +76,9 @@ export default function Dashboard() {
               profileComplete={profileComplete}
             />
           </div>
-          <div className="animate-fade-up lg:col-span-1">
+          <div className="animate-fade-up space-y-6 lg:col-span-1">
             <ProfileCard />
+            <ChangePassword />
           </div>
           <div className="animate-fade-up lg:col-span-1">
             <BookTracker />

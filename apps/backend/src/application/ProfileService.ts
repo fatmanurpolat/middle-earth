@@ -2,8 +2,9 @@ import type { MeResponse, ProfileResponse } from '@middleearth/shared';
 import type { ProfileUseCase } from '../ports/driving/ProfileUseCase.js';
 import type { UserRepository } from '../ports/driven/UserRepository.js';
 import type { BookProgressRepository } from '../ports/driven/BookProgressRepository.js';
+import type { PasswordHasher } from '../ports/driven/PasswordHasher.js';
 import type { FanMeterService } from '../domain/services/FanMeterService.js';
-import { NotFoundError } from '../domain/errors/DomainError.js';
+import { NotFoundError, UnauthorizedError } from '../domain/errors/DomainError.js';
 import { mergeProgress, toUserDTO } from './mappers.js';
 
 /**
@@ -15,6 +16,7 @@ export class ProfileService implements ProfileUseCase {
     private readonly users: UserRepository,
     private readonly progress: BookProgressRepository,
     private readonly fanMeter: FanMeterService,
+    private readonly passwords: PasswordHasher,
   ) {}
 
   async getProfile(userId: string): Promise<MeResponse> {
@@ -49,6 +51,28 @@ export class ProfileService implements ProfileUseCase {
       user: toUserDTO(user),
       fanMeter: this.fanMeter.compute(user, entries),
     };
+  }
+
+  async changePassword(
+    userId: string,
+    currentPassword: string,
+    newPassword: string,
+  ): Promise<void> {
+    const credentials = await this.users.findCredentialsById(userId);
+    if (!credentials) {
+      throw new NotFoundError('User not found');
+    }
+
+    const ok = await this.passwords.verify(
+      currentPassword,
+      credentials.passwordHash,
+    );
+    if (!ok) {
+      throw new UnauthorizedError('Current password is incorrect');
+    }
+
+    const newHash = await this.passwords.hash(newPassword);
+    await this.users.updatePasswordHash(userId, newHash);
   }
 }
 

@@ -23,5 +23,9 @@ export interface UserRepository {
   findById(id: string): Promise<User | null>;
   /** Look up an account by username (case-insensitive) for login. */
   findCredentialsByUsername(username: string): Promise<UserWithCredentials | null>;
+  /** Look up an account (with its password hash) by id, e.g. for password change. */
+  findCredentialsById(id: string): Promise<UserWithCredentials | null>;
   updateCustomName(id: string, customName: string | null): Promise<User>;
+  /** Replace the stored password hash for a user. */
+  updatePasswordHash(id: string, passwordHash: string): Promise<void>;
 }

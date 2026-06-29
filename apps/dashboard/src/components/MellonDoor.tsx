@@ -5,6 +5,7 @@ import { isCharacterId } from '@middleearth/shared';
 import { useAuth } from '../auth/AuthContext';
 import { ApiError } from '../api/client';
 import CharacterPicker from './CharacterPicker';
+import PasswordField from './PasswordField';
 
 /** The decorative Doors of Durin arch: trees, crown, Star of Durin + the arching inscription. */
 function DoorsOfDurin({ inscription }: { inscription: string }) {
@@ -131,6 +132,7 @@ export default function MellonDoor() {
   const [mode, setMode] = useState<Mode>('register');
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
+  const [confirmPassword, setConfirmPassword] = useState('');
   const [selected, setSelected] = useState<CharacterId | null>(null);
   const [customName, setCustomName] = useState('');
   const [submitting, setSubmitting] = useState(false);
@@ -141,12 +143,28 @@ export default function MellonDoor() {
     setError(null);
   };
 
+  /** Client-side checks so the user sees exactly WHY before any request goes out. */
+  const validate = (): string | null => {
+    const u = username.trim();
+    if (u.length === 0) return t('auth.errorUsernameRequired');
+    if (password.length === 0) return t('auth.errorPasswordRequired');
+    if (mode === 'register') {
+      if (u.length < 3) return t('auth.errorUsernameShort');
+      if (password.length < 8) return t('auth.errorPasswordShort');
+      if (!selected || !isCharacterId(selected))
+        return t('auth.errorNoCharacter');
+      if (confirmPassword !== password) return t('auth.errorPasswordMismatch');
+    }
+    return null;
+  };
+
   const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     setError(null);
 
-    if (mode === 'register' && (!selected || !isCharacterId(selected))) {
-      setError(t('auth.errorNoCharacter'));
+    const validationError = validate();
+    if (validationError) {
+      setError(validationError);
       return;
     }
 
@@ -234,29 +252,30 @@ export default function MellonDoor() {
               className={inputClass}
             />
           </div>
-          <div>
-            <label htmlFor="password" className={labelClass}>
-              {t('auth.passwordLabel')}
-            </label>
-            <input
-              id="password"
-              name="password"
-              type="password"
-              autoComplete={isRegister ? 'new-password' : 'current-password'}
-              value={password}
-              maxLength={100}
-              required
-              onChange={(e) => setPassword(e.target.value)}
-              placeholder={t('auth.passwordPlaceholder')}
-              className={inputClass}
-            />
-            {isRegister && (
-              <p className="mt-1.5 text-xs text-mithril/50">
-                {t('auth.passwordHint')}
-              </p>
-            )}
-          </div>
+          <PasswordField
+            id="password"
+            label={t('auth.passwordLabel')}
+            value={password}
+            onChange={setPassword}
+            placeholder={t('auth.passwordPlaceholder')}
+            autoComplete={isRegister ? 'new-password' : 'current-password'}
+            hint={isRegister ? t('auth.passwordHint') : undefined}
+          />
         </div>
+
+        {/* Register-only: confirm password */}
+        {isRegister && (
+          <div className="mt-5">
+            <PasswordField
+              id="confirm-password"
+              label={t('auth.confirmPasswordLabel')}
+              value={confirmPassword}
+              onChange={setConfirmPassword}
+              placeholder={t('auth.confirmPasswordPlaceholder')}
+              autoComplete="new-password"
+            />
+          </div>
+        )}
 
         {/* Register-only: choose character + display name */}
         {isRegister && (
@@ -319,14 +338,20 @@ export default function MellonDoor() {
   );
 }
 
-/** Map an API error to a friendly, localized message. */
+/** Map an API error to a friendly, localized message that says WHY it failed. */
 function resolveError(err: unknown, t: (key: string) => string): string {
   if (err instanceof ApiError) {
+    if (err.status === 0 || err.code === 'NETWORK_ERROR') {
+      return t('auth.errorNetwork');
+    }
     if (err.status === 401) {
       return t('auth.errorInvalidCredentials');
     }
     if (err.status === 409 || err.code === 'CONFLICT') {
       return t('auth.errorUsernameTaken');
+    }
+    if (err.status === 400 || err.code === 'VALIDATION_ERROR') {
+      return t('auth.errorValidation');
     }
     if (err.message) {
       return err.message;
