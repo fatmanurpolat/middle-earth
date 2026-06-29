@@ -88,6 +88,42 @@
       "ringGrass": {
         "title": "The Ring in the green",
         "caption": "Lost in the Gladden Fields and the long grass of ages, its Elvish letters still aglow."
+      },
+      "treebeard": {
+        "title": "Treebeard of Fangorn",
+        "caption": "Fangorn the Ent — oldest of the Onodrim, shepherd of the trees. Merry and Pippin meet him in the ancient forest, and he rouses the Ents to march on Isengard."
+      },
+      "eagleRescue": {
+        "title": "Borne by the Eagles",
+        "caption": "The Great Eagles of the Misty Mountains, servants of Manwë. Gwaihir the Windlord carries Gandalf out of peril more than once across the wild peaks."
+      },
+      "shire": {
+        "title": "The Shire",
+        "caption": "The green and gentle homeland of the Hobbits in Eriador — rolling fields, quiet rivers, and the humble folk whose courage shapes the fate of the world."
+      },
+      "rivendellSketch": {
+        "title": "Rivendell (concept)",
+        "caption": "An early study of Imladris, the House of Elrond, where the Council of Elrond is held and the Fellowship of the Ring is chosen."
+      },
+      "rivendellColour": {
+        "title": "The Last Homely House",
+        "caption": "Rivendell in full colour — a refuge of healing and lore hidden in a deep valley beneath the Misty Mountains, where the wise gather."
+      },
+      "moriaGate": {
+        "title": "The West-gate of Moria",
+        "caption": "The Doors of Durin before the dark waters of the Sirannon. 'Speak, friend, and enter' — the password is the Elvish word for friend: mellon."
+      },
+      "saruman": {
+        "title": "The Ruin of Isengard",
+        "caption": "Saruman the White amid the fires and felled trees of Isengard, where he breeds the Uruk-hai. Once head of the Order, he is corrupted by his hunger for power."
+      },
+      "lothlorien": {
+        "title": "Caras Galadhon",
+        "caption": "The golden wood of Lothlórien, realm of Galadriel and Celeborn. The Fellowship rests among the mallorn-trees and the high flets of the Galadhrim."
+      },
+      "shelob": {
+        "title": "Shelob's Lair",
+        "caption": "The great spider Shelob lurks in the tunnels of Cirith Ungol. Only the Phial of Galadriel — bearing the light of Eärendil's star — can drive her back into the dark."
       }
     },
     "timeline": {
@@ -125,7 +161,8 @@
       }
     },
     "footer": {
-      "text": "A fan-made tribute to the works of J.R.R. Tolkien. Not affiliated with the Tolkien Estate."
+      "text": "A fan-made tribute to the works of J.R.R. Tolkien. Not affiliated with the Tolkien Estate.",
+      "disclaimer": "This is a non-commercial, open-source fan project built for educational purposes. All rights and imagery belong to their respective owners (Tolkien Estate / Warner Bros)."
     }
   },
   "auth": {

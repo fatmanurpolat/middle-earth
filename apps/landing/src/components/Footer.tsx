@@ -14,6 +14,9 @@ export default function Footer() {
         {t('common.tagline')}
       </p>
       <p className="mt-6 text-xs text-mithril/40">{t('landing.footer.text')}</p>
+      <p className="mx-auto mt-4 max-w-2xl border-t border-mithril/10 pt-4 text-[0.7rem] leading-relaxed text-mithril/35">
+        {t('landing.footer.disclaimer')}
+      </p>
     </footer>
   );
 }

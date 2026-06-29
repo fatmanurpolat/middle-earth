@@ -88,6 +88,42 @@
       "ringGrass": {
         "title": "O Anel na relva",
         "caption": "Perdido nos Campos de Lis e na relva alta das eras, as suas letras élficas ainda brilham."
+      },
+      "treebeard": {
+        "title": "Barbárvore de Fangorn",
+        "caption": "O Ent Fangorn — o mais antigo dos Onodrim, pastor das árvores. Merry e Pippin encontram-no na floresta antiga, e ele ergue os Ents para marchar sobre Isengard."
+      },
+      "eagleRescue": {
+        "title": "Levado pelas Águias",
+        "caption": "As Grandes Águias das Montanhas Nevoentas, servas de Manwë. Gwaihir, o Senhor dos Ventos, leva Gandalf do perigo mais de uma vez sobre os picos selvagens."
+      },
+      "shire": {
+        "title": "O Condado",
+        "caption": "A terra natal verde e tranquila dos Hobbits em Eriador — campos ondulantes, rios calmos e o povo simples cuja coragem molda o destino do mundo."
+      },
+      "rivendellSketch": {
+        "title": "Valfenda (esboço)",
+        "caption": "Um estudo inicial de Imladris, a Casa de Elrond, onde se realiza o Conselho de Elrond e se escolhe a Sociedade do Anel."
+      },
+      "rivendellColour": {
+        "title": "A Última Casa Acolhedora",
+        "caption": "Valfenda a cores — um refúgio de cura e saber escondido num vale profundo sob as Montanhas Nevoentas, onde os sábios se reúnem."
+      },
+      "moriaGate": {
+        "title": "O Portão Ocidental de Moria",
+        "caption": "As Portas de Durin diante das águas escuras do Sirannon. 'Fala, amigo, e entra' — a senha é a palavra élfica para amigo: mellon."
+      },
+      "saruman": {
+        "title": "A Ruína de Isengard",
+        "caption": "Saruman, o Branco, entre os fogos e as árvores derrubadas de Isengard, onde cria os Uruk-hai. Outrora chefe da Ordem, é corrompido pela sede de poder."
+      },
+      "lothlorien": {
+        "title": "Caras Galadhon",
+        "caption": "O bosque dourado de Lothlórien, reino de Galadriel e Celeborn. A Sociedade descansa entre as mallorns e os flets elevados dos Galadhrim."
+      },
+      "shelob": {
+        "title": "O Covil de Shelob",
+        "caption": "A grande aranha Shelob espreita nos túneis de Cirith Ungol. Só o Frasco de Galadriel — que guarda a luz da estrela de Eärendil — a faz recuar para a escuridão."
       }
     },
     "timeline": {
@@ -125,7 +161,8 @@
       }
     },
     "footer": {
-      "text": "Uma homenagem feita por fãs às obras de J.R.R. Tolkien. Sem vínculo com o Espólio de Tolkien."
+      "text": "Uma homenagem feita por fãs às obras de J.R.R. Tolkien. Sem vínculo com o Espólio de Tolkien.",
+      "disclaimer": "Este é um projeto de fãs sem fins lucrativos e de código aberto, criado para fins educativos. Todos os direitos e imagens pertencem aos respetivos proprietários (Tolkien Estate / Warner Bros)."
     }
   },
   "auth": {

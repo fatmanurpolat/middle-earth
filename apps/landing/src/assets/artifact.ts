@@ -11,8 +11,24 @@ export const ARTIFACT_SRC = '/artifacts/middle-earth-haven.png';
  * with these exact names; the gallery renders a graceful elven-frame fallback
  * for any image that is missing. `id` maps to landing.gallery.<id> i18n keys.
  */
+export type GalleryImageId =
+  | 'rivendell'
+  | 'ring'
+  | 'autumn'
+  | 'eagle'
+  | 'ringGrass'
+  | 'treebeard'
+  | 'eagleRescue'
+  | 'shire'
+  | 'rivendellSketch'
+  | 'rivendellColour'
+  | 'moriaGate'
+  | 'saruman'
+  | 'lothlorien'
+  | 'shelob';
+
 export interface GalleryImage {
-  id: 'rivendell' | 'ring' | 'autumn' | 'eagle' | 'ringGrass';
+  id: GalleryImageId;
   src: string;
   /** Portrait artwork is shown narrower; wide art spans the full plate. */
   portrait?: boolean;
@@ -24,4 +40,13 @@ export const GALLERY_IMAGES: readonly GalleryImage[] = [
   { id: 'autumn', src: '/artifacts/rivendell-autumn.png' },
   { id: 'eagle', src: '/artifacts/great-eagle-orthanc.png' },
   { id: 'ringGrass', src: '/artifacts/the-one-ring-grass.png' },
+  { id: 'treebeard', src: '/artifacts/treebeard.jpg' },
+  { id: 'eagleRescue', src: '/artifacts/gandalf-eagle.jpg' },
+  { id: 'shire', src: '/artifacts/the-shire-vista.jpg' },
+  { id: 'rivendellSketch', src: '/artifacts/rivendell-sketch.jpg' },
+  { id: 'rivendellColour', src: '/artifacts/rivendell-balcony.jpg' },
+  { id: 'moriaGate', src: '/artifacts/west-gate-moria.jpg' },
+  { id: 'saruman', src: '/artifacts/saruman-isengard.jpg' },
+  { id: 'lothlorien', src: '/artifacts/lothlorien.jpg' },
+  { id: 'shelob', src: '/artifacts/shelob.jpg' },
 ];

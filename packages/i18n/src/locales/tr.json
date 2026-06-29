@@ -88,6 +88,42 @@
       "ringGrass": {
         "title": "Yeşillikteki Yüzük",
         "caption": "Gladden Tarlaları'nın ve çağların uzun otları arasında kaybolmuş; Elf harfleri hâlâ parıldıyor."
+      },
+      "treebeard": {
+        "title": "Fangorn'lu Ağaçsakal",
+        "caption": "Ent Fangorn — Onodrim'in en yaşlısı, ağaçların çobanı. Merry ile Pippin onunla kadim ormanda karşılaşır; o da Entleri Isengard'a yürümeye çağırır."
+      },
+      "eagleRescue": {
+        "title": "Kartalların Kanadında",
+        "caption": "Sisli Dağlar'ın Büyük Kartalları, Manwë'nin hizmetkârları. Rüzgâr Efendisi Gwaihir, Gandalf'ı vahşi doruklar üzerinde defalarca tehlikeden taşır."
+      },
+      "shire": {
+        "title": "Shire",
+        "caption": "Hobbitlerin Eriador'daki yeşil ve huzurlu yurdu — uzanan tarlalar, sakin nehirler ve cesareti dünyanın kaderini şekillendiren mütevazı halk."
+      },
+      "rivendellSketch": {
+        "title": "Ayrıkvadi (taslak)",
+        "caption": "Imladris'in, Elrond'un Evi'nin erken bir çalışması. Elrond Konseyi burada toplanır ve Yüzük Kardeşliği burada seçilir."
+      },
+      "rivendellColour": {
+        "title": "Son Konuksever Ev",
+        "caption": "Renkli haliyle Ayrıkvadi — Sisli Dağlar'ın altındaki derin bir vadide gizlenmiş, bilgelerin toplandığı bir şifa ve irfan sığınağı."
+      },
+      "moriaGate": {
+        "title": "Moria'nın Batı Kapısı",
+        "caption": "Sirannon'un karanlık suları önündeki Durin'in Kapıları. 'Söyle dostum ve gir' — parola, Elfçe 'dost' kelimesidir: mellon."
+      },
+      "saruman": {
+        "title": "Isengard'ın Yıkımı",
+        "caption": "Ak Saruman, Uruk-hai'leri ürettiği Isengard'ın ateşleri ve devrilmiş ağaçları arasında. Bir zamanlar tarikatın başıyken güç hırsıyla yozlaşmıştır."
+      },
+      "lothlorien": {
+        "title": "Caras Galadhon",
+        "caption": "Lothlórien'in altın ormanı, Galadriel ile Celeborn'un diyarı. Kardeşlik, mallorn ağaçları ve Galadhrim'in yüksek flet'leri arasında dinlenir."
+      },
+      "shelob": {
+        "title": "Shelob'un İni",
+        "caption": "Dev örümcek Shelob, Cirith Ungol'ün tünellerinde pusu kurar. Onu yeniden karanlığa süren tek şey, Eärendil'in yıldız ışığını taşıyan Galadriel'in Fiali'dir."
       }
     },
     "timeline": {
@@ -125,7 +161,8 @@
       }
     },
     "footer": {
-      "text": "J.R.R. Tolkien'in eserlerine hayran yapımı bir saygı duruşudur. Tolkien Mirası ile bağlantılı değildir."
+      "text": "J.R.R. Tolkien'in eserlerine hayran yapımı bir saygı duruşudur. Tolkien Mirası ile bağlantılı değildir.",
+      "disclaimer": "Bu, eğitim amacıyla yapılmış, ticari olmayan, açık kaynaklı bir hayran projesidir. Tüm haklar ve görseller ilgili sahiplerine aittir (Tolkien Estate / Warner Bros)."
     }
   },
   "auth": {
