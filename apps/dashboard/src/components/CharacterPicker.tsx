@@ -1,6 +1,6 @@
 import { useTranslation } from 'react-i18next';
 import { CHARACTERS, type CharacterId } from '@middleearth/shared';
-import CharacterSigil from './CharacterSigil';
+import { CHARACTER_IMAGES } from '../assets/characters';
 
 export interface CharacterPickerProps {
   selected: CharacterId | null;
@@ -38,7 +38,17 @@ export default function CharacterPicker({ selected, onSelect }: CharacterPickerP
                 : undefined
             }
           >
-            <CharacterSigil character={character} size="md" glow={active} />
+            <img
+              src={CHARACTER_IMAGES[character.id]}
+              alt={character.name}
+              loading="lazy"
+              className="h-24 w-24 rounded-full object-cover transition-transform duration-200 group-hover:scale-105 sm:h-28 sm:w-28"
+              style={{
+                boxShadow: active
+                  ? `0 0 0 2px ${character.accentColor}, 0 0 22px ${character.accentColor}66`
+                  : `0 0 0 1px ${character.accentColor}44`,
+              }}
+            />
             <span className="flex flex-col">
               <span
                 className="font-display text-sm font-semibold leading-tight"

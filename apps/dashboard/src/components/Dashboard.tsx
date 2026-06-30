@@ -59,6 +59,7 @@ export default function Dashboard() {
             <Greeting
               chosenCharacter={user.chosenCharacter}
               displayName={user.displayName}
+              avatarUrl={user.avatarUrl}
             />
           </div>
           <div className="flex items-center gap-3 self-start sm:self-auto">
