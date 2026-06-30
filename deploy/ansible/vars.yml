@@ -1,0 +1,17 @@
+---
+# Gizli olmayan yapılandırma. Commit'lemesi güvenli.
+repo_url: "https://github.com/fatmanurpolat/middle-earth.git"
+repo_branch: "main"
+project_dir: "/opt/middle-earth"
+
+# Domainler (DNS A-kayıtları bu sunucunun IP'sini göstermeli)
+landing_domain: "fatmanur.xyz"
+dashboard_domain: "app.fatmanur.xyz"
+api_domain: "api.fatmanur.xyz"
+
+# Gizli olmayan uygulama ayarları
+postgres_user: "middleearth"
+postgres_db: "middleearth"
+jwt_expires_in: "7d"
+minio_root_user: "middleearth"
+minio_bucket: "avatars"

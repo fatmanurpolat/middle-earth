@@ -14,6 +14,9 @@ dist
 .env
 .env.local
 
+# Ansible plaintext secrets (encrypt with ansible-vault before committing)
+deploy/ansible/secrets.yml
+
 # Test coverage
 coverage
 

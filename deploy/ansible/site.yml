@@ -1,0 +1,83 @@
+---
+- name: Deploy Middle-earth stack to VPS
+  hosts: web
+  become: true
+
+  vars_files:
+    - vars.yml
+    - secrets.yml
+
+  tasks:
+    # ── 1. System pre requirements ───────────────────────────────
+    - name: Install base packages
+      ansible.builtin.apt:
+        name: [ca-certificates, curl, git, gnupg]
+        update_cache: true
+        state: present
+
+    # ── 2. Docker resmi APT deposu ────────────────────────────────
+    - name: Create keyrings directory
+      ansible.builtin.file:
+        path: /etc/apt/keyrings
+        state: directory
+        mode: "0755"
+
+    - name: Add Docker GPG key
+      ansible.builtin.get_url:
+        url: "https://download.docker.com/linux/{{ ansible_distribution | lower }}/gpg"
+        dest: /etc/apt/keyrings/docker.asc
+        mode: "0644"
+
+    - name: Add Docker APT repository
+      ansible.builtin.apt_repository:
+        repo: >-
+          deb [arch=amd64 signed-by=/etc/apt/keyrings/docker.asc]
+          https://download.docker.com/linux/{{ ansible_distribution | lower }}
+          {{ ansible_distribution_release }} stable
+        filename: docker
+        state: present
+
+    # ── 3. Docker Engine + Compose eklentisi ──────────────────────
+    - name: Install Docker Engine and Compose plugin
+      ansible.builtin.apt:
+        name:
+          - docker-ce
+          - docker-ce-cli
+          - containerd.io
+          - docker-buildx-plugin
+          - docker-compose-plugin
+        update_cache: true
+        state: present
+
+    - name: Ensure Docker is running and enabled
+      ansible.builtin.service:
+        name: docker
+        state: started
+        enabled: true
+
+    # ── 4. Uygulama kodunu getir ──────────────────────────────────
+    - name: Clone or update the repository
+      ansible.builtin.git:
+        repo: "{{ repo_url }}"
+        dest: "{{ project_dir }}"
+        version: "{{ repo_branch }}"
+        force: true
+
+    # ── 5. Production .env create ────────────────────────────────────
+    - name: Generate .env from template
+      ansible.builtin.template:
+        src: templates/env.j2
+        dest: "{{ project_dir }}/.env"
+        mode: "0600"
+
+    # ── 6. Stack build and start ────────────────────────────────────
+    - name: Build and start the Docker Compose stack
+      ansible.builtin.command:
+        cmd: docker compose -f docker-compose.prod.yml up -d --build
+        chdir: "{{ project_dir }}"
+      register: compose_up
+      changed_when: true
+
+    - name: Show compose output
+      ansible.builtin.debug:
+        var: compose_up.stdout_lines
