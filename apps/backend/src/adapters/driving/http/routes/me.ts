@@ -5,7 +5,11 @@ import type {
 } from 'fastify';
 import type { ProfileUseCase } from '../../../../ports/driving/ProfileUseCase.js';
 import { requireUserId } from '../authPlugin.js';
-import { changePasswordBodySchema, updateProfileBodySchema } from '../schemas.js';
+import {
+  changePasswordBodySchema,
+  deleteAccountBodySchema,
+  updateProfileBodySchema,
+} from '../schemas.js';
 import { ValidationError } from '../../../../domain/errors/DomainError.js';
 
 export interface MeRouteDeps {
@@ -15,9 +19,11 @@ export interface MeRouteDeps {
 
 /**
  * Current-user endpoints (all authenticated):
- *   GET   /me          -> MeResponse
- *   PATCH /me          -> ProfileResponse
- *   PATCH /me/password -> 204 (change password)
+ *   GET    /me          -> MeResponse
+ *   PATCH  /me          -> ProfileResponse
+ *   PATCH  /me/password -> 204 (change password)
+ *   POST   /me/avatar   -> ProfileResponse (upload avatar)
+ *   DELETE /me          -> 204 (delete account)
  */
 export function meRoutes(deps: MeRouteDeps): FastifyPluginAsync {
   return async (app: FastifyInstance): Promise<void> => {
@@ -63,6 +69,17 @@ export function meRoutes(deps: MeRouteDeps): FastifyPluginAsync {
           contentType: data.mimetype,
         });
         return reply.send(result);
+      },
+    );
+
+    app.delete(
+      '/me',
+      { preHandler: deps.authenticate },
+      async (request, reply) => {
+        const userId = requireUserId(request);
+        const body = deleteAccountBodySchema.parse(request.body);
+        await deps.profileUseCase.deleteAccount(userId, body.currentPassword);
+        return reply.status(204).send();
       },
     );
   };

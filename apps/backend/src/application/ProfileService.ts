@@ -95,6 +95,32 @@ export class ProfileService implements ProfileUseCase {
     await this.users.updatePasswordHash(userId, newHash);
   }
 
+  async deleteAccount(userId: string, currentPassword: string): Promise<void> {
+    const credentials = await this.users.findCredentialsById(userId);
+    if (!credentials) {
+      throw new NotFoundError('User not found');
+    }
+
+    const ok = await this.passwords.verify(
+      currentPassword,
+      credentials.passwordHash,
+    );
+    if (!ok) {
+      throw new UnauthorizedError('Current password is incorrect');
+    }
+
+    // Best-effort avatar cleanup; sessions and progress cascade in the DB.
+    if (credentials.user.avatarKey) {
+      try {
+        await this.storage.delete(credentials.user.avatarKey);
+      } catch {
+        /* ignore — orphaned object is harmless */
+      }
+    }
+
+    await this.users.delete(userId);
+  }
+
   async setAvatar(
     userId: string,
     upload: AvatarUpload,

@@ -295,6 +295,16 @@
       "saved": "Parola güncellendi.",
       "errorCurrentWrong": "Mevcut parolan yanlış."
     },
+    "deleteAccount": {
+      "title": "Hesabı Sil",
+      "description": "Hesabını ve tüm verilerini kalıcı olarak sil.",
+      "button": "Hesabımı sil",
+      "warning": "Bu işlem geri alınamaz. Profilin, okuma ilerlemen ve avatarın kalıcı olarak silinir.",
+      "passwordLabel": "Parolanı onayla",
+      "cancel": "Vazgeç",
+      "confirm": "Kalıcı olarak sil",
+      "errorWrong": "Parolan yanlış."
+    },
     "avatar": {
       "change": "Fotoğrafı değiştir",
       "errorType": "Lütfen JPEG, PNG veya WebP bir görsel seç.",

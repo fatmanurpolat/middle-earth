@@ -51,6 +51,11 @@ export const changePasswordBodySchema = z.object({
   newPassword: passwordSchema,
 });
 
+/** DELETE /api/me body. */
+export const deleteAccountBodySchema = z.object({
+  currentPassword: z.string().min(1, 'Current password is required'),
+});
+
 /** PUT /api/books/:bookId/progress body. */
 export const updateProgressBodySchema = z.object({
   isRead: z.boolean(),
@@ -65,5 +70,6 @@ export type RegisterBody = z.infer<typeof registerBodySchema>;
 export type LoginBody = z.infer<typeof loginBodySchema>;
 export type UpdateProfileBody = z.infer<typeof updateProfileBodySchema>;
 export type ChangePasswordBody = z.infer<typeof changePasswordBodySchema>;
+export type DeleteAccountBody = z.infer<typeof deleteAccountBodySchema>;
 export type UpdateProgressBody = z.infer<typeof updateProgressBodySchema>;
 export type BookIdParam = z.infer<typeof bookIdParamSchema>;

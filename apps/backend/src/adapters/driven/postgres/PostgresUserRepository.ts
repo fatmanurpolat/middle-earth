@@ -144,6 +144,16 @@ export class PostgresUserRepository implements UserRepository {
     return this.toEntity(row);
   }
 
+  async delete(id: string): Promise<void> {
+    const result = await this.pool.query(
+      `DELETE FROM users WHERE id = $1`,
+      [id],
+    );
+    if (result.rowCount === 0) {
+      throw new NotFoundError('User not found');
+    }
+  }
+
   private toEntity(row: UserRow): User {
     if (!isCharacterId(row.chosen_character)) {
       // Stored data violates the domain invariant — surface loudly.

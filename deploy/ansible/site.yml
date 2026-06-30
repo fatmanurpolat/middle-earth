@@ -81,3 +81,18 @@
     - name: Show compose output
       ansible.builtin.debug:
         var: compose_up.stdout_lines
+
+    # ── 7. Reclaim old Docker cruft so the disk doesn't slowly fill up ──
+    # Only prune build cache older than 7 days, so recent layers stay cached
+    # and incremental builds remain fast.
+    - name: Prune Docker build cache older than 7 days
+      ansible.builtin.command:
+        cmd: docker builder prune -f --filter until=168h
+      register: builder_prune
+      changed_when: "'Total reclaimed space: 0B' not in builder_prune.stdout"
+
+    - name: Prune dangling (untagged) images
+      ansible.builtin.command:
+        cmd: docker image prune -f
+      register: image_prune
+      changed_when: "'Total reclaimed space: 0B' not in image_prune.stdout"

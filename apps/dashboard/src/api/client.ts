@@ -4,6 +4,7 @@ import type {
   Book,
   ChangePasswordRequest,
   Character,
+  DeleteAccountRequest,
   LoginRequest,
   MeResponse,
   ProfileResponse,
@@ -179,6 +180,16 @@ export class ApiClient {
   changePassword(input: ChangePasswordRequest, signal?: AbortSignal): Promise<void> {
     return this.request<void>('/me/password', {
       method: 'PATCH',
+      body: input,
+      auth: true,
+      signal,
+    });
+  }
+
+  /** Permanently delete the signed-in user's account. */
+  deleteAccount(input: DeleteAccountRequest, signal?: AbortSignal): Promise<void> {
+    return this.request<void>('/me', {
+      method: 'DELETE',
       body: input,
       auth: true,
       signal,

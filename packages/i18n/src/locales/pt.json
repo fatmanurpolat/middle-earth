@@ -295,6 +295,16 @@
       "saved": "Palavra-passe atualizada.",
       "errorCurrentWrong": "A tua palavra-passe atual está incorreta."
     },
+    "deleteAccount": {
+      "title": "Eliminar conta",
+      "description": "Elimina permanentemente a tua conta e todos os teus dados.",
+      "button": "Eliminar a minha conta",
+      "warning": "Isto não pode ser desfeito. O teu perfil, progresso de leitura e avatar serão eliminados permanentemente.",
+      "passwordLabel": "Confirma a tua palavra-passe",
+      "cancel": "Cancelar",
+      "confirm": "Eliminar para sempre",
+      "errorWrong": "A tua palavra-passe está incorreta."
+    },
     "avatar": {
       "change": "Mudar foto",
       "errorType": "Escolhe uma imagem JPEG, PNG ou WebP.",

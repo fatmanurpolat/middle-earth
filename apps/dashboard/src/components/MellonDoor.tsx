@@ -185,6 +185,9 @@ export default function MellonDoor() {
       setError(resolveError(err, t));
     } finally {
       setSubmitting(false);
+      // Don't leave the password sitting in the field after an attempt.
+      setPassword('');
+      setConfirmPassword('');
     }
   };
 

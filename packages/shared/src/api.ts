@@ -63,6 +63,11 @@ export interface ChangePasswordRequest {
   newPassword: string;
 }
 
+/** DELETE /api/me — permanently delete the signed-in user's account. */
+export interface DeleteAccountRequest {
+  currentPassword: string;
+}
+
 export interface ProgressResponse {
   progress: BookProgressDTO[];
   fanMeter: FanMeterResult;

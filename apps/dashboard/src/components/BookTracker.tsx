@@ -136,7 +136,7 @@ export default function BookTracker() {
                   &#10003;
                 </span>
                 <span className="min-w-0 flex-1">
-                  <span className="block truncate font-display text-base text-parchment">
+                  <span className="block font-display text-base text-parchment">
                     {book.title}
                   </span>
                   <span className="text-xs text-mithril/50">

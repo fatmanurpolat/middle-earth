@@ -25,4 +25,10 @@ export interface ProfileUseCase {
   setAvatar(userId: string, upload: AvatarUpload): Promise<ProfileResponse>;
   /** Fetch the raw avatar bytes for the public avatar endpoint. */
   getAvatar(userId: string): Promise<StoredObject | null>;
+  /**
+   * Permanently delete the user's account after verifying their password.
+   * Removes the avatar from storage; sessions and progress cascade in the DB.
+   * Throws UnauthorizedError if the password does not match.
+   */
+  deleteAccount(userId: string, currentPassword: string): Promise<void>;
 }

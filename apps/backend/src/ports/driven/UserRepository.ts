@@ -30,4 +30,6 @@ export interface UserRepository {
   updatePasswordHash(id: string, passwordHash: string): Promise<void>;
   /** Set (or clear) the avatar object-storage key for a user. */
   updateAvatarKey(id: string, avatarKey: string | null): Promise<User>;
+  /** Permanently delete a user. Sessions and book progress cascade in the DB. */
+  delete(id: string): Promise<void>;
 }

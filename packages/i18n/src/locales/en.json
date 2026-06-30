@@ -295,6 +295,16 @@
       "saved": "Password updated.",
       "errorCurrentWrong": "Your current password is incorrect."
     },
+    "deleteAccount": {
+      "title": "Delete Account",
+      "description": "Permanently delete your account and all of your data.",
+      "button": "Delete my account",
+      "warning": "This cannot be undone. Your profile, reading progress and avatar will be permanently erased.",
+      "passwordLabel": "Confirm your password",
+      "cancel": "Cancel",
+      "confirm": "Delete forever",
+      "errorWrong": "Your password is incorrect."
+    },
     "avatar": {
       "change": "Change photo",
       "errorType": "Please choose a JPEG, PNG or WebP image.",

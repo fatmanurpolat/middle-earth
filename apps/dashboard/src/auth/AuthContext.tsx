@@ -36,6 +36,8 @@ export interface AuthContextValue extends AuthState {
   register: (input: RegisterRequest) => Promise<void>;
   login: (input: LoginRequest) => Promise<void>;
   logout: () => Promise<void>;
+  /** Permanently delete the account, then clear the local session. */
+  deleteAccount: (currentPassword: string) => Promise<void>;
   refresh: () => Promise<void>;
   /** Reconcile a fresh progress + fanMeter payload after a mutation. */
   applyProgress: (payload: ProgressResponse) => void;
@@ -185,6 +187,14 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     }
   }, [api, clearSession]);
 
+  const deleteAccount = useCallback(
+    async (currentPassword: string): Promise<void> => {
+      await api.deleteAccount({ currentPassword });
+      clearSession();
+    },
+    [api, clearSession],
+  );
+
   const refresh = useCallback(async (): Promise<void> => {
     await hydrate();
   }, [hydrate]);
@@ -211,11 +221,22 @@ export function AuthProvider({ children }: { children: ReactNode }) {
       register,
       login,
       logout,
+      deleteAccount,
       refresh,
       applyProgress,
       applyUser,
     }),
-    [state, api, register, login, logout, refresh, applyProgress, applyUser],
+    [
+      state,
+      api,
+      register,
+      login,
+      logout,
+      deleteAccount,
+      refresh,
+      applyProgress,
+      applyUser,
+    ],
   );
 
   return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;
