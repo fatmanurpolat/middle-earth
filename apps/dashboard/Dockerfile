@@ -9,6 +9,8 @@ ENV CI=1
 # VITE_* vars must be present at BUILD time — Vite bakes them into the bundle.
 ARG VITE_API_URL=http://localhost:3000/api
 ENV VITE_API_URL=${VITE_API_URL}
+ARG VITE_LANDING_URL=http://localhost:5173
+ENV VITE_LANDING_URL=${VITE_LANDING_URL}
 
 COPY package.json package-lock.json* turbo.json tsconfig.base.json ./
 COPY packages ./packages

@@ -23,6 +23,7 @@ export interface MeRouteDeps {
  *   PATCH  /me          -> ProfileResponse
  *   PATCH  /me/password -> 204 (change password)
  *   POST   /me/avatar   -> ProfileResponse (upload avatar)
+ *   DELETE /me/avatar   -> ProfileResponse (remove avatar)
  *   DELETE /me          -> 204 (delete account)
  */
 export function meRoutes(deps: MeRouteDeps): FastifyPluginAsync {
@@ -69,6 +70,15 @@ export function meRoutes(deps: MeRouteDeps): FastifyPluginAsync {
           contentType: data.mimetype,
         });
         return reply.send(result);
+      },
+    );
+
+    app.delete(
+      '/me/avatar',
+      { preHandler: deps.authenticate },
+      async (request) => {
+        const userId = requireUserId(request);
+        return deps.profileUseCase.removeAvatar(userId);
       },
     );
 

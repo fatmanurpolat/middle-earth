@@ -72,6 +72,7 @@ services:
       args:
         # Baked into the static bundle at build time.
         VITE_API_URL: https://${API_DOMAIN}/api
+        VITE_LANDING_URL: https://${LANDING_DOMAIN}
     restart: unless-stopped
 
   caddy:

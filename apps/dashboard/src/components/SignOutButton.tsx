@@ -12,6 +12,9 @@ export default function SignOutButton() {
     setBusy(true);
     try {
       await logout();
+      // Send the signed-out user back to the public landing page.
+      window.location.href =
+        import.meta.env.VITE_LANDING_URL ?? 'http://localhost:5173';
     } finally {
       setBusy(false);
     }

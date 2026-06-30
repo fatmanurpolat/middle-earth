@@ -156,6 +156,28 @@ export class ProfileService implements ProfileUseCase {
     };
   }
 
+  async removeAvatar(userId: string): Promise<ProfileResponse> {
+    const existing = await this.users.findById(userId);
+    if (!existing) {
+      throw new NotFoundError('User not found');
+    }
+
+    if (existing.avatarKey) {
+      try {
+        await this.storage.delete(existing.avatarKey);
+      } catch {
+        /* ignore — orphaned object is harmless */
+      }
+    }
+
+    const user = await this.users.updateAvatarKey(userId, null);
+    const entries = await this.progress.listByUser(userId);
+    return {
+      user: toUserDTO(user, this.publicApiUrl),
+      fanMeter: this.fanMeter.compute(user, entries),
+    };
+  }
+
   async getAvatar(userId: string): Promise<StoredObject | null> {
     const user = await this.users.findById(userId);
     if (!user || !user.avatarKey) {

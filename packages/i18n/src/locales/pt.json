@@ -307,6 +307,7 @@
     },
     "avatar": {
       "change": "Mudar foto",
+      "remove": "Remover foto",
       "errorType": "Escolhe uma imagem JPEG, PNG ou WebP.",
       "errorSize": "A imagem deve ter no máximo 5 MB."
     }

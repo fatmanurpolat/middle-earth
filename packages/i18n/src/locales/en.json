@@ -307,6 +307,7 @@
     },
     "avatar": {
       "change": "Change photo",
+      "remove": "Remove photo",
       "errorType": "Please choose a JPEG, PNG or WebP image.",
       "errorSize": "Image must be 5 MB or smaller."
     }

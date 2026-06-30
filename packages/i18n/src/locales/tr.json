@@ -307,6 +307,7 @@
     },
     "avatar": {
       "change": "Fotoğrafı değiştir",
+      "remove": "Fotoğrafı kaldır",
       "errorType": "Lütfen JPEG, PNG veya WebP bir görsel seç.",
       "errorSize": "Görsel en fazla 5 MB olmalı."
     }

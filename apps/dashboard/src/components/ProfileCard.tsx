@@ -10,7 +10,7 @@ import { useTranslation } from 'react-i18next';
 import { getCharacter } from '@middleearth/shared';
 import { useAuth } from '../auth/AuthContext';
 import { ApiError } from '../api/client';
-import CharacterSigil from './CharacterSigil';
+import { CHARACTER_IMAGES } from '../assets/characters';
 
 export default function ProfileCard() {
   const { t } = useTranslation();
@@ -61,6 +61,25 @@ export default function ProfileCard() {
     }
   };
 
+  const handleRemoveAvatar = async () => {
+    setAvatarError(null);
+    setUploading(true);
+    try {
+      const response = await api.removeAvatar();
+      applyUser(response.user, response.fanMeter);
+    } catch (err) {
+      if (err instanceof ApiError) {
+        setAvatarError(
+          err.status === 0 ? t('auth.errorNetwork') : err.message || t('common.error'),
+        );
+      } else {
+        setAvatarError(t('common.error'));
+      }
+    } finally {
+      setUploading(false);
+    }
+  };
+
   // Keep the input in sync when the user is (re)hydrated externally.
   useEffect(() => {
     setName(user?.customName ?? '');
@@ -80,6 +99,8 @@ export default function ProfileCard() {
   }
 
   const character = getCharacter(user.chosenCharacter);
+  // Default to the chosen character's portrait; the uploaded avatar wins when set.
+  const avatarSrc = user.avatarUrl ?? CHARACTER_IMAGES[user.chosenCharacter];
 
   const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
@@ -119,18 +140,33 @@ export default function ProfileCard() {
           disabled={uploading}
           aria-label={t('dashboard.avatar.change')}
           title={t('dashboard.avatar.change')}
-          className="focus-ring group relative h-16 w-16 flex-none rounded-full disabled:cursor-wait"
+          className="focus-ring group relative h-20 w-20 flex-none rounded-full disabled:cursor-wait"
         >
-          {user.avatarUrl ? (
-            <img
-              src={user.avatarUrl}
-              alt={user.displayName}
-              className="h-16 w-16 rounded-full object-cover"
-              style={{ boxShadow: '0 0 0 2px var(--accent)' } as CSSProperties}
-            />
-          ) : (
-            <CharacterSigil character={character} size="md" glow />
-          )}
+          <img
+            src={avatarSrc}
+            alt={user.displayName}
+            className="h-20 w-20 rounded-full object-cover"
+            style={{ boxShadow: '0 0 0 2px var(--accent)' } as CSSProperties}
+          />
+          {/* Always-visible camera badge so it's obvious the photo is editable. */}
+          <span
+            aria-hidden="true"
+            className="absolute -bottom-0.5 -right-0.5 flex h-7 w-7 items-center justify-center rounded-full border-2 border-ink"
+            style={{ backgroundColor: 'var(--accent)' }}
+          >
+            <svg
+              viewBox="0 0 24 24"
+              className="h-3.5 w-3.5"
+              fill="none"
+              stroke="#0B0B0F"
+              strokeWidth="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            >
+              <path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z" />
+              <circle cx="12" cy="13" r="4" />
+            </svg>
+          </span>
           <span className="absolute inset-0 flex items-center justify-center rounded-full bg-ink/70 text-center text-[0.6rem] font-display uppercase tracking-wide text-parchment opacity-0 transition-opacity group-hover:opacity-100">
             {uploading ? t('common.loading') : t('dashboard.avatar.change')}
           </span>
@@ -155,6 +191,40 @@ export default function ProfileCard() {
           <p className="truncate text-xs text-mithril/60">
             {t(`characters.${character.id}.title`)}
           </p>
+          <div className="mt-1.5 flex items-center gap-3">
+            <button
+              type="button"
+              onClick={() => fileInputRef.current?.click()}
+              disabled={uploading}
+              className="focus-ring inline-flex items-center gap-1.5 text-xs font-semibold uppercase tracking-[0.14em] transition-opacity hover:opacity-80 disabled:opacity-50"
+              style={{ color: 'var(--accent)' }}
+            >
+              <svg
+                viewBox="0 0 24 24"
+                className="h-3.5 w-3.5"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                aria-hidden="true"
+              >
+                <path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z" />
+                <circle cx="12" cy="13" r="4" />
+              </svg>
+              {uploading ? t('common.loading') : t('dashboard.avatar.change')}
+            </button>
+            {user.avatarUrl && (
+              <button
+                type="button"
+                onClick={() => void handleRemoveAvatar()}
+                disabled={uploading}
+                className="focus-ring text-xs font-semibold uppercase tracking-[0.14em] text-mithril/60 transition-colors hover:text-ember disabled:opacity-50"
+              >
+                {t('dashboard.avatar.remove')}
+              </button>
+            )}
+          </div>
         </div>
       </div>
 

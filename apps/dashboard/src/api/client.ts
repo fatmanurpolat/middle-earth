@@ -251,6 +251,15 @@ export class ApiClient {
     return payload as ProfileResponse;
   }
 
+  /** Remove the uploaded avatar; the UI falls back to the character portrait. */
+  removeAvatar(signal?: AbortSignal): Promise<ProfileResponse> {
+    return this.request<ProfileResponse>('/me/avatar', {
+      method: 'DELETE',
+      auth: true,
+      signal,
+    });
+  }
+
   getProgress(signal?: AbortSignal): Promise<ProgressResponse> {
     return this.request<ProgressResponse>('/books/progress', {
       auth: true,

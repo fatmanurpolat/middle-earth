@@ -23,6 +23,8 @@ export interface ProfileUseCase {
   ): Promise<void>;
   /** Upload/replace the user's avatar; returns the updated profile. */
   setAvatar(userId: string, upload: AvatarUpload): Promise<ProfileResponse>;
+  /** Remove the user's avatar (the UI falls back to the character portrait). */
+  removeAvatar(userId: string): Promise<ProfileResponse>;
   /** Fetch the raw avatar bytes for the public avatar endpoint. */
   getAvatar(userId: string): Promise<StoredObject | null>;
   /**
